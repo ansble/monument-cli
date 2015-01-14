@@ -4,7 +4,7 @@
   "description": "monumentjs cli",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "designfrontier/generator-monumentjs-cli",
+  "repository": "https://github.com/ansble/monumentjs-cli.git",
   "author": {
     "name": "Daniel Sellers",
     "email": "",
