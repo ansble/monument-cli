@@ -1,3 +1,7 @@
 var monument = require('monumentjs');
 
-monument.server({routePath: './routes'});
+monument.server({
+				routePath: './routes'
+				, templatePath: './templates'
+				, publicPath: './public'
+			});

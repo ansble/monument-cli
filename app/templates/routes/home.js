@@ -1,5 +1,5 @@
 var events = require('monumentjs').events
-	, mainTemplate = reqiure('../templates/main')
+	, mainTemplate = require('../templates/main')
 	
 	, pkg = require('../package.json');
 
