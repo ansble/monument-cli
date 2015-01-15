@@ -47,13 +47,18 @@ module.exports = yeoman.generators.Base.extend({
             routeReadHolder = that.fs.read(process.cwd() + '/routes/home.js');
             //check for all the verbs...
             that.routes[route].forEach(function (verb) {
-              var regex = new RegExp('route:' + route + ':' + verb.toLowerCase());
+              var regex = new RegExp('route:' + route + ':' + verb.toLowerCase())
+                  , routeString;
+
               if(!routeReadHolder.match(regex)){
                 //the route does not yet exist... stub it out
-                
+                routeString = that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
+                routeReadHolder += '\r\n\r\n' + routeString;
+
+                that.fs.write(process.cwd() + '/routes/home.js', routeReadHolder);
+                console.log(routeReadHolder);
               }
             });
-            that.log(that.fs.read(process.cwd() + '/routes/home.js'));
           } else {
             console.log('no home!');
           }
