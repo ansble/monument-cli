@@ -3,6 +3,6 @@ var events = require('monumentjs').events
 	
 	, pkg = require('../package.json');
 
-events.on('route:/:get', function (connection) {
+events.on('route:<%= routePath %>:<%= routeVerb %>', function (connection) {
 	connection.res.end(mainTemplate({version: pkg.version}));
 });

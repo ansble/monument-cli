@@ -1,60 +1,34 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
-var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
-    this.pkg = require('../package.json');
   },
 
   prompting: function () {
     var done = this.async();
 
     // Have Yeoman greet the user.
-    this.log(
-      'Welcome to the ' + chalk.red('monumentjs cli') + '!'
-    );
+    this.log('Welcome to the ' + chalk.red('monumentjs cli') + '!');
+    this.log('Generating route stubs... please stand by');
 
-    var prompts = [{
-        type: 'input',
-        name: 'name',
-        message: 'What is the name of your project?',
-        default: 'Milan-San Remo'
-      },
+    var prompts = [
       {
-        type: 'input',
-        name: 'version',
-        message: 'What version shall we start with?',
-        default: '1.0.0',
-        validate: function (input) {
-          if(input.match(/^[0-9]+\.[0-9]+\.[0-9]+$/)){
-            return true;
-          } else {
-            return "Must be a semver style version";
-          }
-        }
-      },
-      {
-        type: 'input',
-        name: 'description',
-        message: 'And what are you about to build?',
-        default: 'Something truly mindblowingly awesome'
+        type: 'confirm',
+        name: 'location',
+        message: 'Are you in the root of your project? (you need to be)',
+        default: true
       }
-      // ,{
-      //   type: 'confirm',
-      //   name: 'gulp',
-      //   message: 'Want a starter gulpfile?',
-      //   default: true
-      // }
     ];
 
     this.prompt(prompts, function (props) {
-      this.name = props.name;
-      this.packageName = props.name.replace(/[\s]/, '-');
-      this.version = props.version;
-      this.description = props.description;
-      this.gulp = props.gulp;
+      // this.location = props.location;
+
+      if(props.location){
+        this.pkg = this.fs.readJSON('./package.json');
+        this.routes = this.fs.readJSON('./routes.json');
+      }
 
       done();
     }.bind(this));
@@ -62,67 +36,52 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.fs.copyTpl(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json'),
-        this
-      );
+      var that = this
+        , routeReadHolder;
 
-      this.fs.copyTpl(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json'),
-        this
-      );
+      that.log(that.routes);
+      Object.keys(that.routes).forEach(function (route) {
+        if(route === '/') {
+          //is that the root route? we need to treat it specially
+          if(that.fs.exists(process.cwd() + '/routes/home.js')){
+            routeReadHolder = that.fs.read(process.cwd() + '/routes/home.js');
+            //check for all the verbs...
+            that.routes[route].forEach(function (verb) {
+              var regex = new RegExp('route:' + route + ':' + verb.toLowerCase());
+              if(!routeReadHolder.match(regex)){
+                //the route does not yet exist... stub it out
+                
+              }
+            });
+            that.log(that.fs.read(process.cwd() + '/routes/home.js'));
+          } else {
+            console.log('no home!');
+          }
+        } else {
+          if(that.fs.exists(process.cwd() + '/routes/' + route + '.js')){
+            //TODO: this needs to check for routes not sub routes...
+            console.log('i exist');
+          } else {
+            console.log('i dont exist :-(');
+          }
+        }
+      });
+      // this.fs.copyTpl(
+      //   this.templatePath('_package.json'),
+      //   this.destinationPath('package.json'),
+      //   this
+      // );
 
-      this.fs.copyTpl(
-        this.templatePath('_readme.md'),
-        this.destinationPath('README.md'),
-        this
-      );
-
-      this.fs.copy(
-        this.templatePath('./routes'),
-        this.destinationPath('routes')
-      );
-
-      this.fs.copy(
-        this.templatePath('_routes.json'),
-        this.destinationPath('routes.json')
-      );
-
-      this.fs.copy(
-        this.templatePath('_app.js'),
-        this.destinationPath('app.js')
-      );
-      this.fs.copy(
-        this.templatePath('./public'),
-        this.destinationPath('public')
-      );
-      this.fs.copy(
-        this.templatePath('./templates'),
-        this.destinationPath('templates')
-      );
-    },
-
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
-      this.fs.copy(
-        this.templatePath('bowerrc'),
-        this.destinationPath('.bowerrc')
-      );
+      // this.fs.copy(
+      //   this.templatePath('./templates'),
+      //   this.destinationPath('templates')
+      // );
     }
   },
 
   install: function () {
-    this.installDependencies({
-      skipInstall: this.options['skip-install']
-    });
+    // this.installDependencies({
+    //   skipInstall: true
+    // });
   }
 });
