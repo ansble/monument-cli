@@ -39,36 +39,34 @@ module.exports = yeoman.generators.Base.extend({
       var that = this
         , routeReadHolder;
 
-      that.log(that.routes);
       Object.keys(that.routes).forEach(function (route) {
-        if(route === '/') {
-          //is that the root route? we need to treat it specially
-          if(that.fs.exists(process.cwd() + '/routes/home.js')){
-            routeReadHolder = that.fs.read(process.cwd() + '/routes/home.js');
-            //check for all the verbs...
-            that.routes[route].forEach(function (verb) {
-              var regex = new RegExp('route:' + route + ':' + verb.toLowerCase())
-                  , routeString;
+        var fileName = route;
 
-              if(!routeReadHolder.match(regex)){
-                //the route does not yet exist... stub it out
-                routeString = that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
-                routeReadHolder += '\r\n\r\n' + routeString;
+        if(route === '/'){
+          fileName = "home"
+        }
 
-                that.fs.write(process.cwd() + '/routes/home.js', routeReadHolder);
-                console.log(routeReadHolder);
-              }
-            });
-          } else {
-            console.log('no home!');
-          }
+        if(that.fs.exists(process.cwd() + '/routes/' + fileName + '.js')){
+          routeReadHolder = that.fs.read(process.cwd() + '/routes/' + fileName + '.js');
+          //check for all the verbs...
+          that.routes[route].forEach(function (verb) {
+            var regex = new RegExp('route:' + route + ':' + verb.toLowerCase());
+
+            if(!routeReadHolder.match(regex)){
+              //the route does not yet exist... stub it out
+              routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
+
+              that.fs.write(process.cwd() + '/routes/' + fileName + '.js', routeReadHolder);
+            }
+          });
         } else {
-          if(that.fs.exists(process.cwd() + '/routes/' + route + '.js')){
-            //TODO: this needs to check for routes not sub routes...
-            console.log('i exist');
-          } else {
-            console.log('i dont exist :-(');
-          }
+          routeReadHolder = that.engine(that.fs.read(that.templatePath('_route.js')), {});
+
+            that.routes[route].forEach(function (verb) {                
+                routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
+            });
+
+            that.fs.write(process.cwd() + '/routes/' + fileName + '.js', routeReadHolder);
         }
       });
       // this.fs.copyTpl(
@@ -82,11 +80,5 @@ module.exports = yeoman.generators.Base.extend({
       //   this.destinationPath('templates')
       // );
     }
-  },
-
-  install: function () {
-    // this.installDependencies({
-    //   skipInstall: true
-    // });
   }
 });
