@@ -50,7 +50,7 @@ module.exports = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.name = props.name;
-      this.packageName = props.name.replace(/[\s]/, '-');
+      this.packageName = props.name.replace(/[\s]/g, '-');
       this.version = props.version;
       this.description = props.description;
       this.gulp = props.gulp;
