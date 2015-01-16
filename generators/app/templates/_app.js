@@ -1,4 +1,4 @@
-var monument = require('monumentjs');
+var monument = require('monument');
 
 monument.server({
 				routePath: './routes'

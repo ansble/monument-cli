@@ -1,4 +1,4 @@
-var events = require('monumentjs').events
+var events = require('monument').events
 	, mainTemplate = require('../templates/main')
 	
 	, pkg = require('../package.json');
