@@ -17,10 +17,15 @@
     "test": "mocha"
   },
   "files": [
-    "app"
+    "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "monument",
+    "nodejs",
+    "iojs",
+    "server",
+    "yo"
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.0",
