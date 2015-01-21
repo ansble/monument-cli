@@ -1,1 +1,1 @@
-var events = require('monumentjs').events;
+var events = require('monument').events;
