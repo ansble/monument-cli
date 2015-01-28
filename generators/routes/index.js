@@ -40,7 +40,16 @@ module.exports = yeoman.generators.Base.extend({
         , routeReadHolder;
 
       Object.keys(that.routes).forEach(function (route) {
-        var fileName = route.split('/')[1];
+        var fileName = route.split('/')
+          , localRoute = route;
+
+        if(fileName[0] !== ''){
+          console.log(chalk.yellow('You have a route that doesn\'t begin with "/"... you should fix that'));
+          fileName = fileName[0];
+          localRoute = '/' + route;
+        } else {
+          fileName = fileName[1];
+        }
 
         if(route === '/'){
           fileName = "main"
@@ -50,11 +59,12 @@ module.exports = yeoman.generators.Base.extend({
           routeReadHolder = that.fs.read(process.cwd() + '/routes/' + fileName + '.js');
           //check for all the verbs...
           that.routes[route].forEach(function (verb) {
-            var regex = new RegExp('route:' + route + ':' + verb.toLowerCase());
+            var regex = new RegExp('route:' + localRoute + ':' + verb.toLowerCase());
 
             if(!routeReadHolder.match(regex)){
               //the route does not yet exist... stub it out
-              routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
+
+              routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: localRoute, routeVerb: verb});
 
               that.fs.write(process.cwd() + '/routes/' + fileName + '.js', routeReadHolder);
             }
