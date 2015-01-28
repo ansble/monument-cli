@@ -13,10 +13,12 @@
 - 1.1.9
 
 ####Files changed:
- generators/app/templates/routes/error.js     | 21 +++++++++++++++++++++
- generators/app/templates/templates/error.jst |  2 ++
- generators/routes/index.js                   | 18 ++++++++++++++----
- package.json                                 |  2 +-
+
+- generators/app/templates/routes/error.js     | 21 +++++++++++++++++++++
+- generators/app/templates/templates/error.jst |  2 ++
+- generators/routes/index.js                   | 18 ++++++++++++++----
+- package.json                                 |  2 +-
  
  ####Totals:
+
  4 files changed, 38 insertions(+), 5 deletions(-)
