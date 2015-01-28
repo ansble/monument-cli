@@ -43,7 +43,7 @@ module.exports = yeoman.generators.Base.extend({
         var fileName = route;
 
         if(route === '/'){
-          fileName = "home"
+          fileName = "main"
         }
 
         if(that.fs.exists(process.cwd() + '/routes/' + fileName + '.js')){
