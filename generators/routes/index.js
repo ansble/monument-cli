@@ -40,7 +40,7 @@ module.exports = yeoman.generators.Base.extend({
         , routeReadHolder;
 
       Object.keys(that.routes).forEach(function (route) {
-        var fileName = route;
+        var fileName = route.split('/')[1];
 
         if(route === '/'){
           fileName = "main"
