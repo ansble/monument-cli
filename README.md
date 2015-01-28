@@ -23,8 +23,10 @@ From there it lays down a bunch of files after templating them. You end up with 
 	project/
 		routes/
 			main.js
+			error.js
 		templates/
 			main.jst
+			error.jst
 		.bowerrc
 		.editorconfig
 		.jshintrc
