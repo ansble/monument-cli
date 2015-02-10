@@ -1,4 +1,6 @@
 # monument-cli
+[![npm stats](https://nodei.co/npm/generator-monument-cli.png)](https://nodei.co/npm/generator-monument-cli)
+
 This is the CLI for working with [monument](http://monument.ansble.com). Its job is to make your life easier and your development faster by providing a set of workflow tools for managing the development process. They are outlined below... It is also the fastest way to get a monument project stood up and ready to go.
 
 You use it by first installing it: `npm install -g generator-monument-cli`
