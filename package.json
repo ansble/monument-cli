@@ -1,6 +1,6 @@
 {
   "name": "generator-monument-cli",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "monumentjs cli",
   "license": "MIT",
   "main": "app/index.js",
