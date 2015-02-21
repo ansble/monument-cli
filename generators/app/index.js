@@ -29,7 +29,7 @@ module.exports = yeoman.generators.Base.extend({
           if(input.match(/^[0-9]+\.[0-9]+\.[0-9]+$/)){
             return true;
           } else {
-            return "Must be a semver style version";
+            return 'Must be a semver style version';
           }
         }
       },

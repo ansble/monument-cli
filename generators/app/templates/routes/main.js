@@ -4,5 +4,7 @@ var events = require('monument').events
 	, pkg = require('../package.json');
 
 events.on('route:/:get', function (connection) {
+	'use strict';
+	
 	connection.res.end(mainTemplate({version: pkg.version}));
 });
