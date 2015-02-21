@@ -1,3 +1,8 @@
+### - 1.3.2 *Sat Feb 21 2015 14:24:00 GMT-0700 (MST)*
+
+  - fixed the bug in the 500 error handler
+
+
 ### - 1.3.1 *Sat Feb 21 2015 09:07:12 GMT-0700 (MST)*
 
   - updates and cleanup to match the jshint style. Better code better stuff
