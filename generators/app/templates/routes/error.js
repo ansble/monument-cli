@@ -15,13 +15,13 @@ emitter.on('error:404', function (connection) {
 	connection.res.end(errorTemplate({message: 'file not found', explanation: ''}));
 });
 
-emitter.on('error:500', function (connection, message) {
+emitter.on('error:500', function (objIn) {
 	'use strict';
 	
-	connection.res.writeHead(500, {'Content-Type': 'text/html'});
-	if(message){
-		connection.res.end(errorTemplate({message: 'server side error happened... sorry.', explanation: message}));
+	objIn.connection.res.writeHead(500, {'Content-Type': 'text/html'});
+	if(objIn.message){
+		objIn.connection.res.end(errorTemplate({message: 'server side error happened... sorry.', explanation: objIn.message}));
 	} else {
-		connection.res.end(errorTemplate({message: 'server side error happened... sorry.', explanation: ''}));
+		objIn.connection.res.end(errorTemplate({message: 'server side error happened... sorry.', explanation: ''}));
 	}
 });
