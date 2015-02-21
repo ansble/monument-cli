@@ -1,3 +1,8 @@
+### - 1.3.3 *Sat Feb 21 2015 15:18:20 GMT-0700 (MST)*
+
+  - tweaks to the gitignore for the bower install location
+
+
 ### - 1.3.2 *Sat Feb 21 2015 14:24:00 GMT-0700 (MST)*
 
   - fixed the bug in the 500 error handler
