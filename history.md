@@ -1,3 +1,17 @@
+### - 1.3.4 *3/12/2015, 11:28:50 AM*
+
+  - bumped revision to latest monument
+  - 1.3.3
+  - preparing for release of v1.3.3
+  - tweaks to the gitignore for the bower install location
+  - 1.3.2
+  - preparing for release of v1.3.2
+  - fixed the bug in the 500 error handler
+  - 1.3.1
+  - preparing for release of v1.3.1
+  - updates and cleanup to match the jshint style. Better code better stuff
+
+
 ### - 1.3.3 *Sat Feb 21 2015 15:18:20 GMT-0700 (MST)*
 
   - tweaks to the gitignore for the bower install location
