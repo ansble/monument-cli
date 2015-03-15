@@ -7,7 +7,7 @@ var os = require('os');
 
 describe('monumentjs-cli:app', function () {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../app'))
+    helpers.run(path.join(__dirname, '../generators/app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
@@ -21,7 +21,8 @@ describe('monumentjs-cli:app', function () {
       'bower.json',
       'package.json',
       '.editorconfig',
-      '.jshintrc'
+      '.jshintrc',
+      'gulpfile.js'
     ]);
   });
 });

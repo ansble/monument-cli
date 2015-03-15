@@ -6,10 +6,14 @@
   "dependencies": {
     "monument": "^1.4.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "gulp": "^3.8.11",
+    "gulp-mocha": "^2.0.0"
+  },
   "scripts": {
   	"start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "author": "",
   "license": "MIT",
