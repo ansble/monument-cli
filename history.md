@@ -1,3 +1,16 @@
+### - 1.4.2 *3/14/2015, 9:49:47 PM*
+
+  - fixed the broken tests... and added in a gulpfile that will restart your app while you are developing it
+  - 1.4.1
+  - preparing for release of v1.4.1
+  - tweaked tests
+  - 1.4.0
+  - preparing for release of v1.4.4
+  - 1.3.4
+  - preparing for release of v1.3.4
+  - bumped revision to latest monument
+
+
 ### - 1.4.1 *3/12/2015, 11:35:52 AM*
 
   - tweaked tests
