@@ -1,3 +1,11 @@
+### - 1.4.3 *4/21/2015, 2:36:26 PM*
+
+  - Merge pull request #21 from ansble/bug/param
+  - Merge pull request #20 from ansble/bug/update-release
+  - fixed the param issue... should now laydown the paramed routes in the main file if they are root level
+  - updated to latest release of monument
+
+
 ### - 1.4.2 *3/14/2015, 9:49:47 PM*
 
   - fixed the broken tests... and added in a gulpfile that will restart your app while you are developing it
