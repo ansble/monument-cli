@@ -1,6 +1,6 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
+var yeoman = require('yeoman-generator')
+    , chalk = require('chalk');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -26,6 +26,13 @@ module.exports = yeoman.generators.Base.extend({
         message: 'What is the name of this data handler?',
         default: 'article'
       }
+      , {
+        type: 'list',
+        name: 'colletion',
+        message: 'Is this an Object or a Collection of objects?',
+        choices: ['collection', 'object'],
+        default: 0
+      }
     ];
 
     this.prompt(prompts, function (props) {
@@ -34,6 +41,7 @@ module.exports = yeoman.generators.Base.extend({
       if(props.location){
         this.pkg = this.fs.readJSON('./package.json');
         this.dataName = props.dataName.replace(/ /g, '-');
+        this.collection = props.collection;
       }
 
       done();
@@ -44,15 +52,25 @@ module.exports = yeoman.generators.Base.extend({
     app: function () {
       var that = this
         , fileName = that.dataName
-        , readHolder;
+        , readHolder
+        , appHolder = that.fs.read(process.cwd() + '/app.js')
+        , match = appHolder.match(/monument\.server/);
 
       if(that.fs.exists(process.cwd() + '/data/' + fileName + '.js')){
         that.log('You are trying to overwrite an existing data handler... try a new name.');
       } else {
-        readHolder = that.engine(that.fs.read(that.templatePath('_handler.js')), that);
+
+        if(that.collection){
+          readHolder = that.engine(that.fs.read(that.templatePath('_collection.js')), that);
+        } else {
+          readHolder = that.engine(that.fs.read(that.templatePath('_handler.js')), that);
+        }
 
         that.fs.write(process.cwd() + '/data/' + fileName + '.js', readHolder);
       }
+
+      //write the require in app.js
+      that.fs.write(process.cwd() + '/app.js', appHolder.slice(0, match.index) + 'require(\'./data/' + fileName + '\');\n' + appHolder.slice(match.index));
     }
   }
 });
