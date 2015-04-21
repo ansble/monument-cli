@@ -51,7 +51,7 @@ module.exports = yeoman.generators.Base.extend({
           fileName = fileName[1];
         }
 
-        if(route === '/'){
+        if(route === '/' || route.match(/^\/:/)){
           fileName = 'main';
         }
 
@@ -72,7 +72,7 @@ module.exports = yeoman.generators.Base.extend({
         } else {
           routeReadHolder = that.engine(that.fs.read(that.templatePath('_route.js')), {});
 
-            that.routes[route].forEach(function (verb) {                
+            that.routes[route].forEach(function (verb) {
                 routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
             });
 
