@@ -43,5 +43,6 @@ From there it lays down a bunch of files after templating them. You end up with 
 
 Takes your `routes.json` file and stubbs out any routes that are not currently written.
 
+###yo monument-cli:data
 
-
+Stubs out evented data handlers for you on the fly... and gets them ready to use.
