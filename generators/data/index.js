@@ -33,6 +33,7 @@ module.exports = yeoman.generators.Base.extend({
 
       if(props.location){
         this.pkg = this.fs.readJSON('./package.json');
+        this.dataName = props.dataName.replace(/ /g, '-');
       }
 
       done();
@@ -42,48 +43,16 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       var that = this
-        , routeReadHolder;
+        , fileName = that.dataName
+        , readHolder;
 
-      Object.keys(that.routes).forEach(function (route) {
-        var fileName = route.split('/')
-          , localRoute = route;
+      if(that.fs.exists(process.cwd() + '/data/' + fileName + '.js')){
+        that.log('You are trying to overwrite an existing data handler... try a new name.');
+      } else {
+        readHolder = that.engine(that.fs.read(that.templatePath('_handler.js')), that);
 
-        if(fileName[0] !== ''){
-          console.log(chalk.yellow('You have a route that doesn\'t begin with "/"... you should fix that'));
-          fileName = fileName[0];
-          localRoute = '/' + route;
-        } else {
-          fileName = fileName[1];
-        }
-
-        if(route === '/' || route.match(/^\/:/)){
-          fileName = 'main';
-        }
-
-        if(that.fs.exists(process.cwd() + '/routes/' + fileName + '.js')){
-          routeReadHolder = that.fs.read(process.cwd() + '/routes/' + fileName + '.js');
-          //check for all the verbs...
-          that.routes[route].forEach(function (verb) {
-            var regex = new RegExp('route:' + localRoute + ':' + verb.toLowerCase());
-
-            if(!routeReadHolder.match(regex)){
-              //the route does not yet exist... stub it out
-
-              routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: localRoute, routeVerb: verb});
-
-              that.fs.write(process.cwd() + '/routes/' + fileName + '.js', routeReadHolder);
-            }
-          });
-        } else {
-          routeReadHolder = that.engine(that.fs.read(that.templatePath('_route.js')), {});
-
-            that.routes[route].forEach(function (verb) {
-                routeReadHolder += '\r\n\r\n' + that.engine(that.fs.read(that.templatePath('_existingRoute.js')), {routePath: route, routeVerb: verb});
-            });
-
-            that.fs.write(process.cwd() + '/routes/' + fileName + '.js', routeReadHolder);
-        }
-      });
+        that.fs.write(process.cwd() + '/data/' + fileName + '.js', readHolder);
+      }
     }
   }
 });
