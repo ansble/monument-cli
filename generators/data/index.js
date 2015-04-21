@@ -24,13 +24,7 @@ module.exports = yeoman.generators.Base.extend({
         type: 'input',
         name: 'dataName',
         message: 'What is the name of this data handler?',
-        default: 'myDataHandler'
-      }
-      , {
-        type: 'input',
-        name: 'dataName',
-        message: 'What is the name of this data handler?',
-        default: 'myDataHandler'
+        default: 'article'
       }
     ];
 
@@ -39,7 +33,6 @@ module.exports = yeoman.generators.Base.extend({
 
       if(props.location){
         this.pkg = this.fs.readJSON('./package.json');
-        this.routes = this.fs.readJSON('./routes.json');
       }
 
       done();
