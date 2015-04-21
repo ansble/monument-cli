@@ -1,3 +1,13 @@
+### - 1.4.4 *4/21/2015, 4:21:26 PM*
+
+  - added note about data stubbs
+  - Merge pull request #22 from ansble/feature/data-stub
+  - collection in place... a little more work on that one and cleaning it up
+  - creating the data stub files is working perfectly... just need to get the created file into the app.js file and write some comments in the stubb file
+  - added a data folder to the base generator.
+  - begining work on #12 stubbed out all the things and now we can start writing the code that lays down the files
+
+
 ### - 1.4.3 *4/21/2015, 2:36:26 PM*
 
   - Merge pull request #21 from ansble/bug/param
