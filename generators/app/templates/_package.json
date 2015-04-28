@@ -4,7 +4,7 @@
   "description": "<%= description %>",
   "main": "app.js",
   "dependencies": {
-    "monument": "^1.4.9"
+    "monument": "^1.5.0"
   },
   "devDependencies": {
     "chai": "^2.1.1",
