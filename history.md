@@ -1,3 +1,9 @@
+### - 1.5.1 *5/7/2015, 5:08:26 AM*
+
+  - Merge pull request #25 from ansble/bug/gulp-log
+  - replaced a gulp.log with console.log
+
+
 ### - 1.5.4 *4/27/2015, 10:10:40 PM*
 
   - rev to match latest version of monument
