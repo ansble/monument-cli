@@ -1,3 +1,9 @@
+### - 1.5.2 *9/22/2015, 5:04:09 PM*
+
+  - Merge pull request #27 from ansble/v2.0.0-release
+  - Updates for v2 monument release
+
+
 ### - 1.5.1 *5/7/2015, 5:08:26 AM*
 
   - Merge pull request #25 from ansble/bug/gulp-log
