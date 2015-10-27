@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "monumentjs cli",
   "license": "MIT",
-  "main": "app/index.js",
+  "main": "bin/monument",
   "repository": "https://github.com/ansble/monumentjs-cli.git",
   "author": {
     "name": "Daniel Sellers",
@@ -21,13 +21,13 @@
     "nodejs",
     "server"
   ],
+  "preferGlobal": true,
   "dependencies": {
-    "chalk": "^0.5.0"
+    "chalk": "^0.5.1"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-mocha": "^2.1.3",
-    "minimist": "^1.1.0",
     "mocha": "*"
   }
 }

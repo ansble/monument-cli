@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+'use strict';
+const command = process.argv[2]
+    , chalk = require('chalk');
+
+let options;
+
+console.log(chalk.cyan.bold('Begining monument-cli tasks'));
+
+if (command === 'routes') {
+    console.log(chalk.cyan('Process routes'));
+} else if (command === 'data') {
+    console.log(chalk.cyan('Creating data'));
+} else if (typeof command === 'undefined') {
+    options = (process.argv[3]) ? process.argv[3] : '.';
+
+    console.log(chalk.cyan('Laying down a base project in ' + options));
+
+    //copy the files over
+
+}
