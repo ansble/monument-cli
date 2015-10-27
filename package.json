@@ -4,6 +4,9 @@
   "description": "monumentjs cli",
   "license": "MIT",
   "main": "bin/monument",
+  "bin": {
+    "monument": "./bin/monument"
+  },
   "repository": "https://github.com/ansble/monumentjs-cli.git",
   "author": {
     "name": "Daniel Sellers",
