@@ -17,7 +17,8 @@
     "node": "^4.0.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "postinstall": ""
   },
   "keywords": [
     "monument",
@@ -26,7 +27,11 @@
   ],
   "preferGlobal": true,
   "dependencies": {
-    "chalk": "^0.5.1"
+    "chalk": "^0.5.1",
+    "commander": "^2.9.0",
+    "dot": "^1.0.3",
+    "prompt": "^0.2.14",
+    "semver": "^5.0.3"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

@@ -1,22 +1,39 @@
 #!/usr/bin/env node
-
 'use strict';
-const command = process.argv[2]
-    , chalk = require('chalk');
+const program = require('commander')
+    // , chalk = require('chalk')
+    , pkg = require('../package.json')
 
-let options;
+    , newProject = require('../modules/newProject')
+    , newData = require('../modules/newData')
+    , newRoute = require('../modules/newRoute');
 
-console.log(chalk.cyan.bold('Begining monument-cli tasks'));
+program
+    .version(pkg.version);
 
-if (command === 'routes') {
-    console.log(chalk.cyan('Process routes'));
-} else if (command === 'data') {
-    console.log(chalk.cyan('Creating data'));
-} else if (typeof command === 'undefined') {
-    options = (process.argv[3]) ? process.argv[3] : '.';
+program
+    .command('route [route]')
+    .description('Create a new route handler')
+    .action((route) => {
+        newRoute(route);
+});
 
-    console.log(chalk.cyan('Laying down a base project in ' + options));
+program
+    .command('data [name]')
+    .description('Create a new data handler')
+    .action((name) => {
+        newData(name);
+});
 
-    //copy the files over
+program
+    .command('new [path]')
+    .description('Create a new project')
+    .action((path) => {
+        newProject(path);
+});
 
+program.parse(process.argv);
+
+if (process.argv.length < 3) {
+    program.outputHelp();
 }
