@@ -1,7 +1,7 @@
-# <%= name %>
+# {{=it.name}}
 ------
 
-<%= description %>
+{{=it.description}}
 
 ------
 

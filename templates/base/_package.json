@@ -1,7 +1,7 @@
 {
-  "name": "<%= packageName %>",
-  "version": "<%= version %>",
-  "description": "<%= description %>",
+  "name": "{{=it.packageName}}",
+  "version": "{{=it.version}}",
+  "description": "{{=it.description}}",
   "main": "app.js",
   "dependencies": {
     "monument": "^2.0.0"
