@@ -50,6 +50,7 @@ module.exports = () => {
                             routeReadHolder += '\r\n\r\n' + existingRoute({routePath: localRoute, routeVerb: verb});
 
                             fs.writeFileSync(path.join(process.cwd(), '/routes/' + fileName + '.js'), routeReadHolder);
+                            console.log(chalk.cyan('/routes/' + fileName + '.js') + ' updated with the ' + chalk.green(localRoute) + ' handler for ' + chalk.green(verb) + ' requests');
                         }
                     });
                 } catch (err) {
@@ -60,6 +61,7 @@ module.exports = () => {
                     });
 
                     fs.writeFileSync(path.join(process.cwd(), '/routes/' + fileName + '.js'), routeReadHolder);
+                    console.log(chalk.cyan('/routes/' + fileName + '.js') + ' created');
                 }
             });
         } catch (err) {
