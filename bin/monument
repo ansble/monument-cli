@@ -12,7 +12,7 @@ program
     .version(pkg.version);
 
 program
-    .command('route [route]')
+    .command('routes')
     .description('Create a new route handler')
     .action((route) => {
         newRoute(route);
