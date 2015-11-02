@@ -17,7 +17,7 @@
     "node": "^4.0.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "gulp test"
   },
   "keywords": [
     "monument",
@@ -34,6 +34,7 @@
     "semver": "^5.0.3"
   },
   "devDependencies": {
+    "chai": "^3.4.0",
     "eslint": "^1.8.0",
     "gulp": "^3.9.0",
     "gulp-mocha": "^2.1.3",
