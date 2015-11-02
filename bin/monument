@@ -1,39 +1,41 @@
 #!/usr/bin/env node
 'use strict';
-const program = require('commander')
-    // , chalk = require('chalk')
-    , pkg = require('../package.json')
+const program = require( 'commander' )
+    // , chalk = require( 'chalk' )
+    , pkg = require( '../package.json' )
 
-    , newProject = require('../modules/newProject')
-    , newData = require('../modules/newData')
-    , newRoute = require('../modules/newRoute');
+    , newProject = require( '../modules/newProject' )
+    , newData = require( '../modules/newData' )
+    , newRoute = require( '../modules/newRoute' )
 
-program
-    .version(pkg.version);
-
-program
-    .command('routes')
-    .description('Create a new route handler')
-    .action((route) => {
-        newRoute(route);
-});
+    , missingArgumentsBuffer = 3;
 
 program
-    .command('data [name]')
-    .description('Create a new data handler')
-    .action((name) => {
-        newData(name);
-});
+    .version( pkg.version );
 
 program
-    .command('new [path]')
-    .description('Create a new project')
-    .action((path) => {
-        newProject(path);
-});
+    .command( 'routes' )
+    .description( 'Create a new route handler' )
+    .action( ( route ) => {
+        newRoute( route );
+    } );
 
-program.parse(process.argv);
+program
+    .command( 'data [name]' )
+    .description( 'Create a new data handler' )
+    .action( ( name ) => {
+        newData( name );
+    } );
 
-if (process.argv.length < 3) {
+program
+    .command( 'new [path]' )
+    .description( 'Create a new project' )
+    .action( ( path ) => {
+        newProject( path );
+    } );
+
+program.parse( process.argv );
+
+if ( process.argv.length < missingArgumentsBuffer ) {
     program.outputHelp();
 }

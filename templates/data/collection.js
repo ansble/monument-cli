@@ -1,12 +1,13 @@
 'use strict';
 
-module.exports = (dataName) => {
+module.exports = ( dataName ) => {
 
     return `'use strict';
-    const events = require('monument').events;
 
-    events.on('data:get:${dataName}', (id) => {
+const events = require( 'monument' ).events;
 
-        events.emit('data:set:${dataName}:' + id, []);
-    });`;
+events.on( 'data:get:${dataName}', ( id ) => {
+
+    events.emit( 'data:set:${dataName}:' + id, [] );
+} );`;
 };

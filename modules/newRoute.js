@@ -1,76 +1,87 @@
 'use strict';
 
-const chalk = require('chalk')
-    , monumentCheck = require('./checkForProject')
-    , path = require('path')
-    , fs = require('fs')
+const chalk = require( 'chalk' )
+    , monumentCheck = require( './checkForProject' )
+    , path = require( 'path' )
+    , fs = require( 'fs' )
 
-    , existingRoute = require('../templates/routes/existingRoute')
-    , routeTemplate = require('../templates/routes/route');
+    , existingRoute = require( '../templates/routes/existingRoute' )
+    , routeTemplate = require( '../templates/routes/route' );
 
 module.exports = () => {
     let routes
         , routeReadHolder;
 
-    console.log('Updating your applications route handlers');
+    console.log( 'Updating your applications route handlers' );
 
-    if (monumentCheck()) {
+    if ( monumentCheck() ) {
         try {
-            fs.statSync(path.join(process.cwd(), 'routes.json'));
-            routes = require(path.join(process.cwd(), 'routes.json'));
+            fs.statSync( path.join( process.cwd(), 'routes.json' ) );
+            routes = require( path.join( process.cwd(), 'routes.json' ) );
 
-            Object.keys(routes).forEach(function (route) {
-                var fileName = route.split('/')
-                  , localRoute = route;
+            Object.keys( routes ).forEach( ( route ) => {
+                const fileName = route.split( '/' )
+                  , localRoute = route
+                  , targetPath = path.join( process.cwd(), `/routes/${fileName}.js` )
+                  , chalkedFileName = chalk.cyan( `/routes/${fileName}.js` );
 
-                if(fileName[0] !== ''){
-                    console.log(chalk.yellow('You have a route that doesn\'t begin with "/"... you should fix that'));
-                    fileName = fileName[0];
-                    localRoute = '/' + route;
-                } else {
+                if ( fileName[0] === '' ) {
                     fileName = fileName[1];
+                } else {
+                    console.log( chalk.yellow( 'You have a route that doesn\'t begin with "/"... you should fix that' ) );
+                    fileName = fileName[0];
+                    localRoute = `/${route}`;
                 }
 
-                if(route === '/' || route.match(/^\/:/)){
+                if ( route === '/' || route.match( /^\/:/ ) ){
                     fileName = 'main';
                 }
 
                 try {
-                    fs.statSync(path.join(process.cwd() + '/routes/' + fileName + '.js'));
+                    fs.statSync( targetPath );
 
-                    routeReadHolder = fs.readFileSync(process.cwd() + '/routes/' + fileName + '.js', 'utf-8');
+                    routeReadHolder = fs.readFileSync( targetPath, 'utf-8' );
 
-                    //check for all the verbs...
-                    routes[route].forEach(function (verb) {
-                        var regex = new RegExp('route:' + localRoute + ':' + verb.toLowerCase());
+                    // check for all the verbs...
+                    routes[route].forEach( ( verb ) => {
+                        const regex = new RegExp( `route:${localRoute}:${verb.toLowerCase()}` )
+                            , chalkedVerb = chalk.green( verb )
+                            , chalkedRoute = chalk.green( localRoute );
 
-                        if(!routeReadHolder.match(regex)){
-                            //the route does not yet exist... stub it out
+                        if ( !routeReadHolder.match( regex ) ){
+                            // the route does not yet exist... stub it out
 
-                            routeReadHolder += '\r\n\r\n' + existingRoute({routePath: localRoute, routeVerb: verb});
+                            routeReadHolder += `\r\n\r\n${existingRoute( {
+                                routePath: localRoute
+                                , routeVerb: verb
+                            } )}`;
 
-                            fs.writeFileSync(path.join(process.cwd(), '/routes/' + fileName + '.js'), routeReadHolder);
-                            console.log(chalk.cyan('/routes/' + fileName + '.js') + ' updated with the ' + chalk.green(localRoute) + ' handler for ' + chalk.green(verb) + ' requests');
+                            fs.writeFileSync( targetPath, routeReadHolder );
+                            console.log( `${chalkedFileName} updated with the ${chalkedRoute} handler for ${chalkedVerb} requests` );
                         }
-                    });
-                } catch (err) {
+                    } );
+                } catch ( err ) {
                     routeReadHolder = routeTemplate();
 
-                    routes[route].forEach(function (verb) {
-                        routeReadHolder += '\r\n\r\n' + existingRoute({routePath: localRoute, routeVerb: verb});
-                    });
+                    routes[route].forEach( ( verb ) => {
+                        routeReadHolder += `\r\n\r\n${existingRoute( {
+                            routePath: localRoute
+                            , routeVerb: verb
+                        } )}`;
+                    } );
 
-                    fs.writeFileSync(path.join(process.cwd(), '/routes/' + fileName + '.js'), routeReadHolder);
-                    console.log(chalk.cyan('/routes/' + fileName + '.js') + ' created');
+                    fs.writeFileSync( targetPath, routeReadHolder );
+                    console.log( `${chalkedFileName} created` );
                 }
-            });
-        } catch (err) {
-            console.log(err);
-            console.log('\n\nCouldn\'t find a routes.json to base your application on...');
+            } );
+        } catch ( err ) {
+            console.log( err );
+            console.log( '\n\nCouldn\'t find a routes.json to base your application on...' );
         }
 
     } else {
-        console.log('\n\nWait a minute... this doesn\'t look like a ' + chalk.cyan('monument') + ' project folder...');
-        console.log('   Maybe you ran this from the wrong directory?');
+        console.log( '\n\nWait a minute...' );
+        console.log( `   are you sure this is a ${chalk.cyan( 'monument' )} project folder?` );
+        console.log( '   Maybe you ran this from the wrong directory?' );
     }
 };
