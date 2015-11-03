@@ -72,10 +72,10 @@ module.exports = ( pathIn ) => {
                         , results = resultsIn
 
                         , mainFiles = [
-                            'eslintrc'
-                            , 'jshintrc'
-                            , 'gitignore'
-                            , 'editorconfig'
+                            '.eslintrc'
+                            , '.jshintrc'
+                            , '.gitignore'
+                            , '.editorconfig'
                             , 'routes.json'
                             , 'gulpfile.js'
                             , 'app.js'
@@ -85,6 +85,7 @@ module.exports = ( pathIn ) => {
                             , 'public'
                             , 'templates'
                             , 'routes'
+                            , 'test_stubs'
                         ]
                         , templateFiles = [
                             '_package.json'

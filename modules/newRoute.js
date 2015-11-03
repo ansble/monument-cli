@@ -6,11 +6,15 @@ const chalk = require( 'chalk' )
     , fs = require( 'fs' )
 
     , existingRoute = require( '../templates/routes/existingRoute' )
-    , routeTemplate = require( '../templates/routes/route' );
+    , routeTemplate = require( '../templates/routes/route' )
+    , routeTest = require( '../templates/routes/newRoute.test')
+    , routeTestHeader = require( '../templates/routes/newRouteHeader.test')
+    , routeTestEOF = require( '../templates/routes/newRouteEOF.test');
 
 module.exports = () => {
     let routes
-        , routeReadHolder;
+        , routeReadHolder
+        , routeTestHolder;
 
     console.log( 'Updating your applications route handlers' );
 
@@ -21,21 +25,28 @@ module.exports = () => {
 
             Object.keys( routes ).forEach( ( route ) => {
                 const fileName = route.split( '/' )
-                  , localRoute = route
-                  , targetPath = path.join( process.cwd(), `/routes/${fileName}.js` )
-                  , chalkedFileName = chalk.cyan( `/routes/${fileName}.js` );
+                  , localRoute = route;
 
-                if ( fileName[0] === '' ) {
-                    fileName = fileName[1];
+                let finalFileName = fileName
+                    , targetTestPath
+                    , targetPath
+                    , chalkedFileName;
+
+                if ( finalFileName[0] === '' ) {
+                    finalFileName = finalFileName[1];
                 } else {
                     console.log( chalk.yellow( 'You have a route that doesn\'t begin with "/"... you should fix that' ) );
-                    fileName = fileName[0];
+                    finalFileName = finalFileName[0];
                     localRoute = `/${route}`;
                 }
 
                 if ( route === '/' || route.match( /^\/:/ ) ){
-                    fileName = 'main';
+                    finalFileName = 'main';
                 }
+
+                targetPath = path.join( process.cwd(), `/routes/${finalFileName}.js` );
+                targetTestPath = path.join( process.cwd(), `/routes/${finalFileName}.test.js` );
+                chalkedFileName = chalk.cyan( `/routes/${finalFileName}.js` );
 
                 try {
                     fs.statSync( targetPath );
@@ -62,15 +73,25 @@ module.exports = () => {
                     } );
                 } catch ( err ) {
                     routeReadHolder = routeTemplate();
+                    routeTestHolder = routeTestHeader({fileName: localRoute});
 
                     routes[route].forEach( ( verb ) => {
                         routeReadHolder += `\r\n\r\n${existingRoute( {
                             routePath: localRoute
                             , routeVerb: verb
                         } )}`;
+
+                        routeTestHolder += `\r\n\r\n${routeTest( {
+                            routePath: localRoute
+                            , routeVerb: verb
+                        } )}`
                     } );
 
+                    routeTestHolder += routeTestEOF();
+
                     fs.writeFileSync( targetPath, routeReadHolder );
+                    fs.writeFileSync( targetTestPath, routeTestHolder );
+
                     console.log( `${chalkedFileName} created` );
                 }
             } );

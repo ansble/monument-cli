@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = () => {
-    return `const events = require('monument').events;`;
+    return `'use strict';
+const events = require('monument').events;`;
 };
