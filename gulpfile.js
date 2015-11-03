@@ -6,7 +6,6 @@ const gulp = require( 'gulp' )
     , cp = require( 'child_process' )
     , chalk = require( 'chalk' )
     , fs = require( 'fs' )
-    , path = require('path')
 
     , pkg = require( './package.json' )
 
