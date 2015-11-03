@@ -55,7 +55,7 @@ module.exports = ( pathIn ) => {
                         }
                     }
                 }, ( promptErr, resultsIn ) => {
-                    const templatePath = path.join( __dirname, '/../templates/base/' )
+                    const templatePath = pathObj.join( __dirname, '/../templates/base/' )
                         , templateTransform = ( ) => {
                             const transform = new stream.Transform( { objectMode: true } );
 

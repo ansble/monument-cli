@@ -7,7 +7,9 @@ const prompt = require( 'prompt' )
     , fs = require( 'fs' )
 
     , collection = require( '../templates/data/collection' )
-    , object = require( '../templates/data/handler' );
+    , collectionTest = require('../templates/data/collection.test')
+    , object = require( '../templates/data/handler' )
+    , objectTest = require('../templates/data/handler.test');
 
 module.exports = ( dataName ) => {
     console.log( `Creating a new ${chalk.cyan( dataName )} data handler` );
@@ -28,7 +30,8 @@ module.exports = ( dataName ) => {
         // copy files and template those in need of it
         // target is path variable above
         const target = path.join( process.cwd(), `/data/${dataName}.js` )
-            , fileName = chalk.cyan( `${dataName} .js` );
+            , testTarget = path.join( process.cwd(), `/data/${dataName}.test.js` )
+            , fileName = chalk.cyan( `${dataName}.js` );
 
         if ( monumentCheck() ) {
             if ( results.objectCollection[0] === 'c' ) {
@@ -36,10 +39,18 @@ module.exports = ( dataName ) => {
                 fs.writeFile( target, collection( dataName ), () => {
                     console.log( `\n\n New data collection ${fileName} has been created!` );
                 } );
+
+                fs.writeFile( testTarget, collectionTest( dataName ), () => {
+                    console.log( `\n\n Stub tests for ${fileName} have been created!` );
+                } );
             } else {
                 // object
                 fs.writeFile( target, object( dataName ), () => {
                     console.log( `\n\n New data handler ${fileName} has been created!` );
+                } );
+
+                fs.writeFile( testTarget, objectTest( dataName ), () => {
+                    console.log( `\n\n Stub tests for ${fileName} have been created!` );
                 } );
             }
         } else {

@@ -29,7 +29,7 @@ gulp.task('server', function() {
 gulp.task('test', function (){
     'use strict';
 
-    return gulp.src(['**/**_test.js', '!node_modules/**/*'], {read: false})
+    return gulp.src(['**/**.test.js', '!node_modules/**/*'], {read: false})
             .pipe(mocha({reporter: 'spec'}));
 });
 

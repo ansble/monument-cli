@@ -33,7 +33,7 @@ const gulp = require( 'gulp' )
 gulp.task( 'default', Function.prototype );
 
 gulp.task( 'test', () => {
-    return gulp.src( [ '**/**.test.js', '!node_modules/**/*' ], { read: false } )
+    return gulp.src( [ '**/**.test.js', '!node_modules/**/*', '!templates/**/*' ], { read: false } )
             .pipe( mocha( { reporter: 'spec' } ) );
 } );
 
