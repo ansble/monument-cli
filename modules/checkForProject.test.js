@@ -2,7 +2,16 @@
 'use strict';
 
 const subject = require( './checkForProject' )
-    , assert = require( 'chai' ).assert;
+    , assert = require( 'chai' ).assert
+
+    , fs = require( 'fs' )
+    , path = require( 'path' );
+
+try {
+    fs.mkdirSync( path.join( process.cwd(), './test_stubs/empty-folder' ) );
+} catch ( err ) {
+    console.log( 'empty-test folder exists' );
+}
 
 describe( 'Check For Project tests', () => {
     it( 'should return a function', () => {

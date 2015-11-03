@@ -6,6 +6,7 @@ const gulp = require( 'gulp' )
     , cp = require( 'child_process' )
     , chalk = require( 'chalk' )
     , fs = require( 'fs' )
+    , path = require('path')
 
     , pkg = require( './package.json' )
 
@@ -33,7 +34,6 @@ const gulp = require( 'gulp' )
 gulp.task( 'default', Function.prototype );
 
 gulp.task( 'test', () => {
-
     return gulp.src( [ '**/**.test.js', '!node_modules/**/*' ], { read: false } )
             .pipe( mocha( { reporter: 'spec' } ) );
 } );
