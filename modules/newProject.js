@@ -1,36 +1,36 @@
 'use strict';
 
-const prompt = require( 'prompt' )
-    , chalk = require( 'chalk' )
-    , semver = require( 'semver' )
-    , fs = require( 'fs' )
-    , pathObj = require( 'path' )
-    , ncp = require( 'ncp' )
-    , stream = require( 'stream' )
-    , dot = require( 'dot' )
-    , cp = require( 'child_process' );
+const prompt = require('prompt')
+    , chalk = require('chalk')
+    , semver = require('semver')
+    , fs = require('fs')
+    , pathObj = require('path')
+    , ncp = require('ncp')
+    , stream = require('stream')
+    , dot = require('dot')
+    , cp = require('child_process');
 
-module.exports = ( pathIn ) => {
+module.exports = (pathIn) => {
     const path = pathIn || '.';
 
-    fs.stat( path, ( err, file ) => {
-        if ( err ) {
-            console.log( err );
+    fs.stat(path, (err, file) => {
+        if (err) {
+            console.log(err);
         } else {
 
-            if ( file.isDirectory() && fs.readdirSync( path ).length !== 0 ){
-                console.log( 'Oh noes! That\'s not an empty directory!' );
+            if (file.isDirectory() && fs.readdirSync(path).length !== 0){
+                console.log('Oh noes! That\'s not an empty directory!');
 
                 return;
-            } else if ( file.isDirectory( ) ) {
-                console.log( `Creating a new ${chalk.cyan( ' monument ' )} project @ ${path}` );
+            } else if (file.isDirectory()) {
+                console.log(`Creating a new ${chalk.cyan(' monument ')} project @ ${path}`);
 
                 prompt.delimiter = ' ';
-                prompt.message = chalk.green( '>' );
+                prompt.message = chalk.green('>');
 
-                prompt.start( );
+                prompt.start();
 
-                prompt.get( {
+                prompt.get({
                     properties: {
                         name: {
                             description: 'What is the name of your project?'
@@ -43,8 +43,8 @@ module.exports = ( pathIn ) => {
                             description: 'What version shall we start with?'
                             , message: 'Must be valid semver'
                             , default: '1.0.0'
-                            , conform: ( value ) => {
-                                  return semver.valid( value );
+                            , conform: (value) => {
+                                  return semver.valid(value);
                               }
                         }
                         , description: {
@@ -54,17 +54,19 @@ module.exports = ( pathIn ) => {
                             , type: 'string'
                         }
                     }
-                }, ( promptErr, resultsIn ) => {
-                    const templatePath = pathObj.join( __dirname, '/../templates/base/' )
-                        , templateTransform = ( ) => {
-                            const transform = new stream.Transform( { objectMode: true } );
+                }, (promptErr, resultsIn) => {
+                    const templatePath = pathObj.join(__dirname, '/../templates/base/')
+                        , templateTransform = () => {
+                            const transform = new stream.Transform({ objectMode: true });
 
-                            transform._transform = function ( chunk, enc, done ) {
-                                const data = chunk.toString( );
+                            /* eslint-disable no-underscore-dangle*/
+                            transform._transform = function (chunk, enc, done) {
+                            /* eslint-enable no-underscore-dangle*/
+                                const data = chunk.toString();
 
-                                this.push( dot.template( data )( resultsIn ) );
+                                this.push(dot.template(data)(resultsIn));
 
-                                done( );
+                                done();
                             };
 
                             return transform;
@@ -92,47 +94,47 @@ module.exports = ( pathIn ) => {
                             , '_readme.md'
                         ];
 
-                    results.packageName = results.name.replace( /\s/, '-' );
+                    results.packageName = results.name.replace(/\s/, '-');
 
                     // copy files and template those in need of it
                     // target is path variable above
 
                     // Copy the non-templated files over
-                    mainFiles.forEach( ( mainFile ) => {
-                        const filePath = pathObj.join( templatePath, mainFile )
-                            , fileTarget = pathObj.join( process.cwd(), mainFile );
+                    mainFiles.forEach((mainFile) => {
+                        const filePath = pathObj.join(templatePath, mainFile)
+                            , fileTarget = pathObj.join(process.cwd(), mainFile);
 
-                        fs.createReadStream( filePath )
-                            .pipe( fs.createWriteStream( fileTarget ) );
-                    } );
+                        fs.createReadStream(filePath)
+                            .pipe(fs.createWriteStream(fileTarget));
+                    });
 
 
                     // COPY DIRECTORIES over wholesale
-                    directories.forEach( ( dir ) => {
-                        const sourceDir = pathObj.join( templatePath, dir )
-                            , targetDir = pathObj.join( process.cwd(), dir );
+                    directories.forEach((dir) => {
+                        const sourceDir = pathObj.join(templatePath, dir)
+                            , targetDir = pathObj.join(process.cwd(), dir);
 
-                        ncp( sourceDir, targetDir );
-                    } );
+                        ncp(sourceDir, targetDir);
+                    });
 
                     // template the files that need it
-                    templateFiles.forEach( ( template ) => {
-                        const sourceTemplate = pathObj.join( templatePath, template )
-                            , noUnderScoreName = template.replace( /_/, '' )
-                            , targetTemplate = pathObj.join( process.cwd(), noUnderScoreName );
+                    templateFiles.forEach((template) => {
+                        const sourceTemplate = pathObj.join(templatePath, template)
+                            , noUnderScoreName = template.replace(/_/, '')
+                            , targetTemplate = pathObj.join(process.cwd(), noUnderScoreName);
 
-                        fs.createReadStream( sourceTemplate )
-                            .pipe( templateTransform( ) )
-                            .pipe( fs.createWriteStream( targetTemplate ) );
-                    } );
+                        fs.createReadStream(sourceTemplate)
+                            .pipe(templateTransform())
+                            .pipe(fs.createWriteStream(targetTemplate));
+                    });
 
-                    console.log( chalk.cyan( '\n\nTemplates copied...' ) );
-                    console.log( '  spawning processes to intall dependencies and initialize git repo' );
-                    console.log( `\nWelcome to ${chalk.cyan( 'monument' )} \n\n` );
-                    cp.spawn( 'npm', [ 'install' ] ).stdout.pipe( process.stdout );
-                    cp.spawn( 'git', [ 'init' ] ).stdout.pipe( process.stdout );
-                } );
+                    console.log(chalk.cyan('\n\nTemplates copied...'));
+                    console.log('  spawning processes to intall dependencies and initialize git repo');
+                    console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
+                    cp.spawn('npm', [ 'install' ]).stdout.pipe(process.stdout);
+                    cp.spawn('git', [ 'init' ]).stdout.pipe(process.stdout);
+                });
             }
         }
-    } );
+    });
 };

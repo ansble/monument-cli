@@ -1,11 +1,11 @@
 'use strict';
 
-const monument = require( 'monument' )
+const monument = require('monument')
     , defaultPort = 3000;
 
-monument.server( {
+monument.server({
     routePath: './routes'
     , templatePath: './templates'
     , publicPath: './public'
     , port: process.env.PORT || defaultPort
-} );
+});

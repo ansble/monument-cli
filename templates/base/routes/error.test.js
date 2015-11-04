@@ -1,8 +1,7 @@
 /* eslint-env node, mocha */
 'use strict';
 
-const subject = require( './error' )
-    , assert = require( 'chai' ).assert
+const assert = require('chai').assert
     , events = require('monument').events
     , fakeConnection = require('../test_stubs/connectionStub')
 
@@ -10,36 +9,45 @@ const subject = require( './error' )
     , response404 = '<!doctype html><html lang="en"> <head> </head> <body> <h1>file not found</h1> <h2></h2> </body></html>'
     , response500Generic = '<!doctype html><html lang="en"> <head> </head> <body> <h1>server side error happened... sorry.</h1> <h2></h2> </body></html>';
 
-describe( 'Error Handler Tests', () => {
-    beforeEach( () => {
-        fakeConnection.reset();
-    } );
+// Initialize the code to be tested
+require('./error');
 
-	it( 'should respond to error:401 with an unauthorized message', () => {
+describe('Error Handler Tests', () => {
+    beforeEach(() => {
+        fakeConnection.reset();
+    });
+
+    it('should respond to error:401 with an unauthorized message', () => {
+        const statusCode = 401;
+
         let result;
 
         events.emit('error:401', fakeConnection);
         result = fakeConnection.out();
-        
-        assert.isObject( result.headers );
-        assert.strictEqual( result.headers['Content-Type'], 'text/html' );
-        assert.strictEqual( result.status, 401 );
-        assert.strictEqual( result.response, response401 );
-    } );
 
-    it( 'should respond to error:404 with a missing file message', () => {
+        assert.isObject(result.headers);
+        assert.strictEqual(result.headers['Content-Type'], 'text/html');
+        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(result.response, response401);
+    });
+
+    it('should respond to error:404 with a missing file message', () => {
+        const statusCode = 404;
+
         let result;
 
         events.emit('error:404', fakeConnection);
         result = fakeConnection.out();
-        
-        assert.isObject( result.headers );
-        assert.strictEqual( result.headers['Content-Type'], 'text/html' );
-        assert.strictEqual( result.status, 404 );
-        assert.strictEqual( result.response, response404 );
-    } );
 
-    it( 'should respond to error:500 with a server error', () => {
+        assert.isObject(result.headers);
+        assert.strictEqual(result.headers['Content-Type'], 'text/html');
+        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(result.response, response404);
+    });
+
+    it('should respond to error:500 with a server error', () => {
+        const statusCode = 500;
+
         let result;
 
         events.emit('error:500', {
@@ -47,15 +55,16 @@ describe( 'Error Handler Tests', () => {
         });
 
         result = fakeConnection.out();
-        
-        assert.isObject( result.headers );
-        assert.strictEqual( result.headers['Content-Type'], 'text/html' );
-        assert.strictEqual( result.status, 500 );
-        assert.strictEqual( result.response, response500Generic );
-    } );
 
-    it( 'should respond to error:500 with a server error', () => {
-        const message = 'This was a bad idea';
+        assert.isObject(result.headers);
+        assert.strictEqual(result.headers['Content-Type'], 'text/html');
+        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(result.response, response500Generic);
+    });
+
+    it('should respond to error:500 with a server error', () => {
+        const message = 'This was a bad idea'
+            , statusCode = 500;
 
         let result;
 
@@ -65,10 +74,10 @@ describe( 'Error Handler Tests', () => {
         });
 
         result = fakeConnection.out();
-        
-        assert.isObject( result.headers );
-        assert.strictEqual( result.headers['Content-Type'], 'text/html' );
-        assert.strictEqual( result.status, 500 );
-        assert.include( result.response, message );
-    } );
-} );
+
+        assert.isObject(result.headers);
+        assert.strictEqual(result.headers['Content-Type'], 'text/html');
+        assert.strictEqual(result.status, statusCode);
+        assert.include(result.response, message);
+    });
+});
