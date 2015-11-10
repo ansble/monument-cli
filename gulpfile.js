@@ -33,7 +33,6 @@ const gulp = require('gulp')
 
 gulp.task('default', Function.prototype);
 
-// run eslint without an additional plugin
 gulp.task('lint', () => {
     return gulp.src([ '**/*.js', '!node_modules/', 'bin/monument' ])
         .pipe(eslint('./.eslintrc'))
