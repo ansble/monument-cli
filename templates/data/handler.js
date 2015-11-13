@@ -10,7 +10,7 @@ const events = require('monument').events
 events.on('data:get:${dataName}', () => {
     const cached = cache.get('data.${dataName}');
 
-    if (cached === null && !fetchingStore['data.${dataName}'])) {
+    if (cached === null && !fetchingStore['data.${dataName}']) {
         // get data from async source faked here by process.nextTick
         fetchingStore['data.${dataName}'] = true;
 

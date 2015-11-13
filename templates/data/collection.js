@@ -12,7 +12,7 @@ events.on('data:get:${dataName}', (id) => {
     const cached = cache.get('data.${dataName}');
 
     if (typeof id === 'undefined') {
-        if (cached === null && !fetchingStore['data.${dataName}'])) {
+        if (cached === null && !fetchingStore['data.${dataName}']) {
             // get data from async source faked here by process.nextTick
             fetchingStore['data.${dataName}'] = true;
 
@@ -29,7 +29,7 @@ events.on('data:get:${dataName}', (id) => {
             events.emit('data:set:${dataName}', cached);
         }
     } else {
-        if (cached === null && !fetchingStore['data.${dataName}'])) {
+        if (cached === null && !fetchingStore['data.${dataName}']) {
             // get data from async source faked here by process.nextTick
             fetchingStore['data.${dataName}'] = true;
 

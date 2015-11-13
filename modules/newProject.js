@@ -94,7 +94,7 @@ module.exports = (pathIn) => {
                             , '_readme.md'
                         ];
 
-                    results.packageName = results.name.replace(/\s/, '-');
+                    results.packageName = results.name.replace(/\s/g, '-');
 
                     // copy files and template those in need of it
                     // target is path variable above
