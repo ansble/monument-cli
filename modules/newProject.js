@@ -81,7 +81,6 @@ module.exports = (pathIn) => {
 
                         , dotFiles = [
                             'eslintrc'
-                            , 'jshintrc'
                             , 'gitignore'
                             , 'editorconfig'
                         ]
