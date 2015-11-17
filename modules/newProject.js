@@ -74,7 +74,7 @@ module.exports = (pathIn) => {
                         , results = resultsIn
 
                         , mainFiles = [
-                            , 'routes.json'
+                            'routes.json'
                             , 'gulpfile.js'
                             , 'app.js'
                         ]
