@@ -1,9 +1,12 @@
 {
-  "name": "generator-monument-cli",
-  "version": "2.0.0",
+  "name": "monument-cli",
+  "version": "1.0.1",
   "description": "monumentjs cli",
   "license": "MIT",
-  "main": "app/index.js",
+  "main": "bin/monument",
+  "bin": {
+    "monument": "./bin/monument"
+  },
   "repository": "https://github.com/ansble/monumentjs-cli.git",
   "author": {
     "name": "Daniel Sellers",
@@ -14,30 +17,27 @@
     "node": "^4.0.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "gulp test"
   },
-  "files": [
-    "generators"
-  ],
   "keywords": [
-    "yeoman-generator",
     "monument",
     "nodejs",
-    "iojs",
-    "server",
-    "yo"
+    "server"
   ],
+  "preferGlobal": true,
   "dependencies": {
-    "yeoman-generator": "^0.18.0",
-    "chalk": "^0.5.0"
+    "chalk": "^0.5.1",
+    "commander": "^2.9.0",
+    "dot": "^1.0.3",
+    "ncp": "^2.0.0",
+    "prompt": "^0.2.14",
+    "semver": "^5.0.3"
   },
   "devDependencies": {
+    "chai": "^3.4.0",
+    "eslint": "^1.8.0",
     "gulp": "^3.9.0",
-    "gulp-mocha": "^2.1.3",
-    "minimist": "^1.1.0",
-    "mocha": "*"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
+    "gulp-eslint": "^1.0.0",
+    "gulp-mocha": "^2.1.3"
   }
 }

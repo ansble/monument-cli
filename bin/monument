@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+'use strict';
+const program = require('commander')
+    // , chalk = require('chalk')
+    , pkg = require('../package.json')
+
+    , newProject = require('../modules/newProject')
+    , newData = require('../modules/newData')
+    , newRoute = require('../modules/newRoute')
+
+    , missingArgumentsBuffer = 3;
+
+program
+    .version(pkg.version);
+
+program
+    .command('routes')
+    .description('Create a new route handler')
+    .action((route) => {
+        newRoute(route);
+    });
+
+program
+    .command('data [name]')
+    .description('Create a new data handler')
+    .action((name) => {
+        newData(name);
+    });
+
+program
+    .command('new [path]')
+    .description('Create a new project')
+    .action((path) => {
+        newProject(path);
+    });
+
+program.parse(process.argv);
+
+if (process.argv.length < missingArgumentsBuffer) {
+    program.outputHelp();
+}
