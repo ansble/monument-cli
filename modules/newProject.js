@@ -74,14 +74,18 @@ module.exports = (pathIn) => {
                         , results = resultsIn
 
                         , mainFiles = [
-                            '.eslintrc'
-                            , '.jshintrc'
-                            , '.gitignore'
-                            , '.editorconfig'
                             , 'routes.json'
                             , 'gulpfile.js'
                             , 'app.js'
                         ]
+
+                        , dotFiles = [
+                            'eslintrc'
+                            , 'jshintrc'
+                            , 'gitignore'
+                            , 'editorconfig'
+                        ]
+
                         , directories = [
                             'data'
                             , 'public'
@@ -89,6 +93,7 @@ module.exports = (pathIn) => {
                             , 'routes'
                             , 'test_stubs'
                         ]
+
                         , templateFiles = [
                             '_package.json'
                             , '_readme.md'
@@ -103,6 +108,15 @@ module.exports = (pathIn) => {
                     mainFiles.forEach((mainFile) => {
                         const filePath = pathObj.join(templatePath, mainFile)
                             , fileTarget = pathObj.join(process.cwd(), mainFile);
+
+                        fs.createReadStream(filePath)
+                            .pipe(fs.createWriteStream(fileTarget));
+                    });
+
+                    // Copy the non-templated files over
+                    dotFiles.forEach((dotFile) => {
+                        const filePath = pathObj.join(templatePath, dotFile)
+                            , fileTarget = pathObj.join(process.cwd(), `.${dotFile}`);
 
                         fs.createReadStream(filePath)
                             .pipe(fs.createWriteStream(fileTarget));
