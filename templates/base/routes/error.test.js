@@ -15,6 +15,7 @@ require('./error');
 describe('Error Handler Tests', () => {
     beforeEach(() => {
         fakeConnection.reset();
+        fakeConnection.res.statusCode = 200;
     });
 
     it('should respond to error:401 with an unauthorized message', () => {
@@ -26,8 +27,7 @@ describe('Error Handler Tests', () => {
         result = fakeConnection.out();
 
         assert.isObject(result.headers);
-        assert.strictEqual(result.headers['Content-Type'], 'text/html');
-        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(fakeConnection.res.statusCode, statusCode);
         assert.strictEqual(result.response, response401);
     });
 
@@ -40,8 +40,7 @@ describe('Error Handler Tests', () => {
         result = fakeConnection.out();
 
         assert.isObject(result.headers);
-        assert.strictEqual(result.headers['Content-Type'], 'text/html');
-        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(fakeConnection.res.statusCode, statusCode);
         assert.strictEqual(result.response, response404);
     });
 
@@ -57,8 +56,7 @@ describe('Error Handler Tests', () => {
         result = fakeConnection.out();
 
         assert.isObject(result.headers);
-        assert.strictEqual(result.headers['Content-Type'], 'text/html');
-        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(fakeConnection.res.statusCode, statusCode);
         assert.strictEqual(result.response, response500Generic);
     });
 
@@ -76,8 +74,7 @@ describe('Error Handler Tests', () => {
         result = fakeConnection.out();
 
         assert.isObject(result.headers);
-        assert.strictEqual(result.headers['Content-Type'], 'text/html');
-        assert.strictEqual(result.status, statusCode);
+        assert.strictEqual(fakeConnection.res.statusCode, statusCode);
         assert.include(result.response, message);
     });
 });
