@@ -6,7 +6,7 @@ const emitter = require('monument').events
 emitter.on('error:401', (connection) => {
     const errorCode = 401;
 
-    connection.res.writeHead(errorCode, { 'Content-Type': 'text/html' });
+    connection.res.statusCode = errorCode;
     connection.res.send(errorTemplate({
         message: 'You tried to access something you aren\'t allowed to. Punk.'
         , explanation: ''
@@ -16,7 +16,7 @@ emitter.on('error:401', (connection) => {
 emitter.on('error:404', (connection) => {
     const errorCode = 404;
 
-    connection.res.writeHead(errorCode, { 'Content-Type': 'text/html' });
+    connection.res.statusCode = errorCode;
     connection.res.send(errorTemplate({
         message: 'file not found'
         , explanation: ''
@@ -26,7 +26,7 @@ emitter.on('error:404', (connection) => {
 emitter.on('error:500', (objIn) => {
     const errorCode = 500;
 
-    objIn.connection.res.writeHead(errorCode, { 'Content-Type': 'text/html' });
+    objIn.connection.res.statusCode = errorCode;
 
     if (objIn.message){
         objIn.connection.res.send(errorTemplate({

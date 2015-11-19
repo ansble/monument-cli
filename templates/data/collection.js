@@ -53,7 +53,7 @@ const events = require('monument').events
                 cache.add('data.${dataName}', stubData, 300000);
             });
         } else if (cached !== null) {
-            events.emit('data:set:${dataName}', cached.find((item) => {
+            events.emit(\`data:set:${dataName}:\${id}\`, cached.find((item) => {
                 return item.id === id;
             }));
         }
