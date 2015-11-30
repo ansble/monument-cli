@@ -10,6 +10,8 @@ const prompt = require('prompt')
     , dot = require('dot')
     , cp = require('child_process');
 
+dot.templateSettings.strip = false;
+
 module.exports = (pathIn) => {
     const path = pathIn || '.';
 
