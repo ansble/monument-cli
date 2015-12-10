@@ -47,7 +47,7 @@ module.exports = (pathIn) => {
                         description: 'What is the name of your project?'
                         , type: 'string'
                         // this should change with each major release
-                        , default: 'Amstel-Gold Race'
+                        , default: 'la-Fleche-Wallone'
                         , required: true
                     }
                     , version: {
