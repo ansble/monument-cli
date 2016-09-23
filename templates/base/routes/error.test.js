@@ -1,6 +1,4 @@
 /* eslint-env node, mocha */
-'use strict';
-
 const assert = require('chai').assert
     , events = require('monument').events
     , fakeConnection = require('../test_stubs/connectionStub')

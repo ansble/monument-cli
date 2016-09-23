@@ -1,5 +1,3 @@
-'use strict';
-
 const gulp = require('gulp')
     , mocha = require('gulp-mocha')
     , eslint = require('gulp-eslint')

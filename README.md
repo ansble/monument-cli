@@ -15,7 +15,7 @@ To get a new project simply navigate your terminal to the desired location and r
 
 This is the command that gets you the basic project structure for a monument project. More information on [monument is available](http://monument.ansble.com) and you should check out the documentation there as well as this documentation.
 
-So when you run `monument new <path-to-project>` you are going to be asked the foloowing:
+So when you run `monument new <path-to-project>` you are going to be asked the following:
 - What is the name of your project?
 - What version shall we start with? (must be semver compatible and defaults to 1.0.0)
 - And what are you about to build? (this is used to stub out some documentation for you)
