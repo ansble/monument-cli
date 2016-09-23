@@ -1,6 +1,6 @@
 {    "ecmaFeatures" : {
         "modules" : true
-                      },
+     },
 
     "env": {
         "browser": true,

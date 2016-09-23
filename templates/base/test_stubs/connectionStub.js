@@ -1,4 +1,3 @@
-'use strict';
 let out = ''
     , headers = {}
     , status = 200;

@@ -1,5 +1,3 @@
-'use strict';
-
 const emitter = require('monument').events
     , errorTemplate = require('../templates/error');
 
