@@ -1,3 +1,4 @@
+'use strict';
 
 const monument = require('monument')
     , defaultPort = 3000;
