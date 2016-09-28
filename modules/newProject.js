@@ -87,6 +87,7 @@ module.exports = (pathIn) => {
                     , mainFiles = [
                         'routes.json'
                         , 'app.js'
+                        , 'Dockerfile'
                     ]
 
                     , dotFiles = [
@@ -94,6 +95,7 @@ module.exports = (pathIn) => {
                         , 'eslintignore'
                         , 'gitignore'
                         , 'editorconfig'
+                        , 'dockerignore'
                     ]
 
                     , directories = [
