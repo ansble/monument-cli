@@ -1,15 +1,10 @@
 #!/usr/bin/env node
 'use strict';
-const minimist = require('minimist')
-    , cp = require('child_process')
+const cp = require('child_process')
     , fs = require('fs')
     , chalk = require('chalk')
-    , knownOptions = {
-        string: 'type'
-        , default: { type: 'patch' }
-    }
     , opt = process.argv.pop()
-    , options = minimist(opt, knownOptions)
+    , options = { type: opt }
     , incrementVersion = require('./increment.js')
     , pkg = require('../package.json')
     , newVersion = incrementVersion(pkg.version, options.type)

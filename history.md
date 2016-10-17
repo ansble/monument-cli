@@ -1,4 +1,10 @@
-### - 1.0.13 * 10/17/2016, 9:01:09 AM *
+### - 1.1.0 * 10/17/2016, 9:02:11 AM *
+
+   - preparing for release of v1.0.13
+  - preparing for release of v1.0.13 
+
+
+ ### - 1.0.13 * 10/17/2016, 9:01:09 AM *
 
    - preparing for release of v1.0.13 
 
