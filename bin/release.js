@@ -15,7 +15,7 @@ const minimist = require('minimist')
     , newVersion = incrementVersion(pkg.version, options.type)
     , gitLogCommand = 'git log `git describe --tags --abbrev=0`..HEAD --pretty=format:"  - %s"';
 
-console.log(opt);
+console.log(opt, options);
 
 // this is the task to automat most of the release stuff... because it is lame and boring
 console.log(`\n\nPreparing for a ${chalk.bgGreen.bold(options.type)} release...\n\n`);
