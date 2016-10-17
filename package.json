@@ -14,10 +14,12 @@
     "url": "https://github.com/designfrontier"
   },
   "engines": {
-    "node": "^4.0.0"
+    "node": "^6.8.0"
   },
   "scripts": {
-    "test": "gulp test"
+    "lint": "bin/lint.js",
+    "release": "npm test && echo ' => releasing' && bin/release.js",
+    "test": "npm run lint && istanbul cover _mocha -- modules/*.test.js bin/*_test.js"
   },
   "keywords": [
     "monument",
@@ -26,21 +28,21 @@
   ],
   "preferGlobal": true,
   "dependencies": {
-    "chalk": "^0.5.1",
-    "commander": "^2.9.0",
-    "dot": "^1.0.3",
-    "escodegen": "^1.7.1",
-    "esprima": "^2.7.0",
-    "js-beautify": "^1.5.10",
-    "ncp": "^2.0.0",
-    "prompt": "^0.2.14",
-    "semver": "^5.0.3"
+    "chalk": "~1.1.3",
+    "commander": "~2.9.0",
+    "dot": "~1.0.3",
+    "escodegen": "~1.8.1",
+    "esprima": "~3.0.0",
+    "js-beautify": "~1.6.4",
+    "ncp": "~2.0.0",
+    "prompt": "~1.0.0",
+    "semver": "~5.3.0"
   },
   "devDependencies": {
-    "chai": "^3.4.0",
-    "eslint": "^1.8.0",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^1.0.0",
-    "gulp-mocha": "^2.1.3"
+    "chai": "~3.5.0",
+    "eslint": "~3.6.0",
+    "istanbul": "~0.4.5",
+    "minimist": "~1.2.0",
+    "mocha": "~3.1.2"
   }
 }

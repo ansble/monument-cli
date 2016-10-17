@@ -46,13 +46,14 @@ module.exports = (dataName) => {
             , monumentLocation;
 
         if (monumentCheck()) {
-            app = esprima.parse(fs.readFileSync(appFile), esprimaOpts);
+            app = esprima.parse(fs.readFileSync(appFile).toString(), esprimaOpts);
 
             monumentLocation = app.body.reduce((result, item, i) => {
-                if (item.expression
-                    && item.expression.callee
+                if (typeof item.expression !== 'undefined'
+                    && typeof item.expression.callee !== 'undefined'
+                    && typeof item.expression.callee.object !== 'undefined'
+                    && typeof item.expression.callee.object.name !== 'undefined'
                     && item.expression.callee.object.name === 'monument') {
-
                     return i;
                 } else {
                     return result;
@@ -81,7 +82,7 @@ module.exports = (dataName) => {
 
             app.body.splice(monumentLocation, 0, requireCode.body[0]);
 
-            fs.writeFileSync(appFile, beautify(escodegen.generate(app, { comments: true }), beautifyOpts));
+            fs.writeFileSync(appFile, beautify(escodegen.generate(app, { comments: true }), beautifyOpts).replace(/monument\./, '\nmonument.').replace(/^require/m, '\nrequire'));
         } else {
             console.log('\n\nWait a minute...');
             console.log(`   are you sure this is a ${chalk.cyan('monument')} project folder?`);

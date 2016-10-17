@@ -1,3 +1,5 @@
+'use strict';
+
 /* eslint-env node, mocha */
 const assert = require('chai').assert
     , events = require('monument').events

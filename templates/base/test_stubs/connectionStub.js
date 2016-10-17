@@ -1,3 +1,5 @@
+'use strict';
+
 let out = ''
     , headers = {}
     , status = 200;
@@ -24,17 +26,17 @@ module.exports = {
         send: write
         , end: write
         , setHeaders: (key, value) => {
-              headers[key] = value;
-          }
+            headers[key] = value;
+        }
         , writeHead: (code, headersIn) => {
-              status = code;
-              headers = headersIn;
-          }
+            status = code;
+            headers = headersIn;
+        }
     }
     , reset: () => {
-          headers = {};
-          status = 200;
-          out = '';
-      }
+        headers = {};
+        status = 200;
+        out = '';
+    }
     , out: show
 };

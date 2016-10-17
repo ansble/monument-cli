@@ -55,8 +55,8 @@ module.exports = (pathIn) => {
                         , message: 'Must be valid semver'
                         , default: '1.0.0'
                         , conform: (value) => {
-                              return semver.valid(value);
-                          }
+                            return semver.valid(value);
+                        }
                     }
                     , description: {
                         description: 'What will it do?'
@@ -86,14 +86,16 @@ module.exports = (pathIn) => {
 
                     , mainFiles = [
                         'routes.json'
-                        , 'gulpfile.js'
                         , 'app.js'
+                        , 'Dockerfile'
                     ]
 
                     , dotFiles = [
                         'eslintrc'
+                        , 'eslintignore'
                         , 'gitignore'
                         , 'editorconfig'
+                        , 'dockerignore'
                     ]
 
                     , directories = [
@@ -102,6 +104,7 @@ module.exports = (pathIn) => {
                         , 'templates'
                         , 'routes'
                         , 'test_stubs'
+                        , 'bin'
                     ]
 
                     , templateFiles = [
