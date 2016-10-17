@@ -9,6 +9,7 @@ npm test
 
 #new route test
 cat ../test_stubs/routes_test.json > routes.json
+monument routes
 npm test
 
 #new data test
