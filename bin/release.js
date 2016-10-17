@@ -8,11 +8,14 @@ const minimist = require('minimist')
         string: 'type'
         , default: { type: 'patch' }
     }
-    , options = minimist(process.argv.pop(), knownOptions)
+    , opt = process.argv.pop()
+    , options = minimist(opt, knownOptions)
     , incrementVersion = require('./increment.js')
     , pkg = require('../package.json')
     , newVersion = incrementVersion(pkg.version, options.type)
     , gitLogCommand = 'git log `git describe --tags --abbrev=0`..HEAD --pretty=format:"  - %s"';
+
+console.log(opt);
 
 // this is the task to automat most of the release stuff... because it is lame and boring
 console.log(`\n\nPreparing for a ${chalk.bgGreen.bold(options.type)} release...\n\n`);
