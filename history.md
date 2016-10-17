@@ -1,4 +1,9 @@
-### - 1.0.11 * 10/17/2016, 8:59:08 AM *
+### - 1.0.12 * 10/17/2016, 8:59:55 AM *
+
+  
+
+
+ ### - 1.0.11 * 10/17/2016, 8:59:08 AM *
 
    - Merge pull request #46 from ansble/feature/gulp-to-npm
   - missed a call to monument
