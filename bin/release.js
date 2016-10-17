@@ -8,7 +8,7 @@ const minimist = require('minimist')
         string: 'type'
         , default: { type: 'patch' }
     }
-    , options = minimist(process.argv.slice(2), knownOptions)
+    , options = minimist(process.argv.pop(), knownOptions)
     , incrementVersion = require('./increment.js')
     , pkg = require('../package.json')
     , newVersion = incrementVersion(pkg.version, options.type)
