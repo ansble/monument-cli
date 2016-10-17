@@ -14,7 +14,7 @@
     "url": "https://github.com/designfrontier"
   },
   "engines": {
-    "node": "^4.0.0"
+    "node": "^6.8.0"
   },
   "scripts": {
     "lint": "bin/lint.js",
