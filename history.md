@@ -1,4 +1,24 @@
-### - 2.5.2 *9/22/2015, 5:04:19 PM*
+### - 1.0.11 * 10/17/2016, 8:59:08 AM *
+
+   - Merge pull request #46 from ansble/feature/gulp-to-npm
+  - missed a call to monument
+  - expanded tests
+  - added mocha
+  - added test.sh and fixed an error with the base project
+  - added an answeer file to expand tests
+  - bumped node version in the package.json
+  - Adds mocha and locks down deps in template better
+  - Tweaks the dockerfile
+  - Adds a docker file to make life even easier
+  - Updates deps, versions, drops gulp etc.
+  - Merge pull request #45 from matsieftw/add-scanjs-defaults
+  - Fixed a minor spelling error in the README.md for the CLI.
+  - Hopefully finally fixed all the spacing issues in the project eslintrc. Removed superfluous "use strict" directives from files.
+  - Fix spacing on eslintrc. Add new rules packages to devDependencies in base package.json.
+  - Add scanJS rules to eslint template file. Add scanjs package to eslint template file. 
+
+
+ ### - 2.5.2 *9/22/2015, 5:04:19 PM*
 
 
 
