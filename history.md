@@ -1,4 +1,11 @@
-### - 1.1.0 * 10/17/2016, 9:02:11 AM *
+### - 1.2.0 * 10/24/2016, 8:11:03 AM *
+
+   - Merge pull request #47 from ansble/feature/update-to-latest-add-spinner
+  - DRYs out the code a bit
+  - Adds spinners and cleans up the CLI messaging 
+
+
+ ### - 1.1.0 * 10/17/2016, 9:02:11 AM *
 
    - preparing for release of v1.0.13
   - preparing for release of v1.0.13 
