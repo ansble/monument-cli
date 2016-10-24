@@ -8,7 +8,8 @@ const prompt = require('prompt')
     , ncp = require('ncp')
     , stream = require('stream')
     , dot = require('dot')
-    , cp = require('child_process');
+    , cp = require('child_process')
+    , ora = require('ora');
 
 dot.templateSettings.strip = false;
 
@@ -112,13 +113,32 @@ module.exports = (pathIn) => {
                         , '_readme.md'
                     ]
 
-                    , mainTargetDir = pathObj.join(process.cwd(), path);
+                    , mainTargetDir = pathObj.join(process.cwd(), path)
+                    , templateSpinner = ora({
+                        text: 'Preparing templates'
+                        , spinner: 'star2'
+                        , color: 'yellow'
+                    })
+                    , processSpinner = ora({
+                        text: 'Installing dependencies'
+                        , spinner: 'star2'
+                        , color: 'yellow'
+                    })
+                    , gitSpinner = ora({
+                        text: 'Initializing git repo'
+                        , spinner: 'star2'
+                        , color: 'yellow'
+                    });
+
+                let gitFlag = false
+                    , npmFlag = false
+                    , endFlag = false;
 
                 results.packageName = results.name.replace(/\s/g, '-');
 
                 // copy files and template those in need of it
                 // target is path variable above
-
+                templateSpinner.start();
                 // Copy the non-templated files over
                 mainFiles.forEach((mainFile) => {
                     const filePath = pathObj.join(templatePath, mainFile)
@@ -157,15 +177,40 @@ module.exports = (pathIn) => {
                         .pipe(fs.createWriteStream(targetTemplate));
                 });
 
-                console.log(chalk.cyan('\n\nTemplates copied...'));
-                console.log('  spawning processes to intall dependencies and initialize git repo');
-                console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
+                // console.log(chalk.cyan('\n\nTemplates copied...'));
+                templateSpinner.stopAndPersist(chalk.green('✔'));
+                processSpinner.start();
+                gitSpinner.start();
 
-                cp.spawn('npm', [ 'install' ], { cwd: mainTargetDir })
-                    .stdout.pipe(process.stdout);
+                cp.spawn('npm', [ 'install' ], { cwd: mainTargetDir }).on('close', (code) => {
+                    npmFlag = true;
 
-                cp.spawn('git', [ 'init' ], { cwd: mainTargetDir })
-                    .stdout.pipe(process.stdout);
+                    if (code === 0) {
+                        processSpinner.stopAndPersist(chalk.green('✔'));
+                    } else {
+                        processSpinner.stopAndPersist(chalk.red('✖'));
+                    }
+
+                    if (npmFlag && gitFlag && !endFlag) {
+                        endFlag = true;
+                        console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
+                    }
+                });
+
+                cp.spawn('git', [ 'init' ], { cwd: mainTargetDir }).on('close', (code) => {
+                    gitFlag = true;
+
+                    if (code === 0) {
+                        gitSpinner.stopAndPersist(chalk.green('✔'));
+                    } else {
+                        gitSpinner.stopAndPersist(chalk.red('✖'));
+                    }
+
+                    if (npmFlag && gitFlag && !endFlag) {
+                        endFlag = true;
+                        console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
+                    }
+                });
             });
         }
     });
