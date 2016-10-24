@@ -67,6 +67,10 @@ module.exports = (pathIn) => {
                     }
                 }
             }, (promptErr, resultsIn) => {
+                let gitFlag = false
+                    , npmFlag = false
+                    , endFlag = false;
+
                 const templatePath = pathObj.join(__dirname, '/../templates/base/')
                     , templateTransform = () => {
                         const transform = new stream.Transform({ objectMode: true });
@@ -128,11 +132,13 @@ module.exports = (pathIn) => {
                         text: 'Initializing git repo'
                         , spinner: 'star2'
                         , color: 'yellow'
-                    });
-
-                let gitFlag = false
-                    , npmFlag = false
-                    , endFlag = false;
+                    })
+                    , doneMessage = () => {
+                        if (npmFlag && gitFlag && !endFlag) {
+                            endFlag = true;
+                            console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
+                        }
+                    };
 
                 results.packageName = results.name.replace(/\s/g, '-');
 
@@ -177,7 +183,6 @@ module.exports = (pathIn) => {
                         .pipe(fs.createWriteStream(targetTemplate));
                 });
 
-                // console.log(chalk.cyan('\n\nTemplates copied...'));
                 templateSpinner.stopAndPersist(chalk.green('✔'));
                 processSpinner.start();
                 gitSpinner.start();
@@ -191,10 +196,7 @@ module.exports = (pathIn) => {
                         processSpinner.stopAndPersist(chalk.red('✖'));
                     }
 
-                    if (npmFlag && gitFlag && !endFlag) {
-                        endFlag = true;
-                        console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
-                    }
+                    doneMessage();
                 });
 
                 cp.spawn('git', [ 'init' ], { cwd: mainTargetDir }).on('close', (code) => {
@@ -206,10 +208,7 @@ module.exports = (pathIn) => {
                         gitSpinner.stopAndPersist(chalk.red('✖'));
                     }
 
-                    if (npmFlag && gitFlag && !endFlag) {
-                        endFlag = true;
-                        console.log(`\nWelcome to ${chalk.cyan('monument')} \n\n`);
-                    }
+                    doneMessage();
                 });
             });
         }
