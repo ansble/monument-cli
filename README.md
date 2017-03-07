@@ -1,4 +1,6 @@
 # monument-cli
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ansble/monument-cli.svg)](https://greenkeeper.io/)
 [![npm stats](https://nodei.co/npm/monument-cli.png)](https://nodei.co/npm/monument-cli)
 
 [ ![Codeship Status for ansble/monument-cli](https://codeship.com/projects/4b195f80-9c55-0132-f7f8-3a6c943f49f1/status?branch=master)](https://codeship.com/projects/64333)
