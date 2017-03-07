@@ -1,4 +1,16 @@
-### - 1.2.0 * 10/24/2016, 8:11:03 AM *
+### - 1.2.1 * 3/7/2017, 6:03:43 AM *
+
+   - Merge pull request #51 from ansble/greenkeeper/initial
+  - docs(readme): add Greenkeeper badge
+  - chore(package): update dependencies
+  - 1.2.0
+  - preparing for release of v1.2.0
+  - Merge pull request #47 from ansble/feature/update-to-latest-add-spinner
+  - DRYs out the code a bit
+  - Adds spinners and cleans up the CLI messaging 
+
+
+ ### - 1.2.0 * 10/24/2016, 8:11:03 AM *
 
    - Merge pull request #47 from ansble/feature/update-to-latest-add-spinner
   - DRYs out the code a bit
