@@ -1,4 +1,60 @@
-### - 1.2.1 * 3/7/2017, 6:04:16 AM *
+### - 1.2.2 * 3/22/2017, 8:36:00 PM *
+
+   - update release script
+  - Merge pull request #52 from ansble/greenkeeper/eslint-3.18.0
+  - chore(package): update eslint to version 3.18.0
+  - 1.2.1
+  - preparing for release of v1.2.1
+  - preparing for release of v1.2.1
+  - Merge pull request #51 from ansble/greenkeeper/initial
+  - docs(readme): add Greenkeeper badge
+  - chore(package): update dependencies
+  - 1.2.0
+  - preparing for release of v1.2.0
+  - Merge pull request #47 from ansble/feature/update-to-latest-add-spinner
+  - DRYs out the code a bit
+  - Adds spinners and cleans up the CLI messaging
+  - 1.1.0
+  - preparing for release of v1.1.0
+  - preparing for release of v1.0.13
+  - preparing for release of v1.0.13
+  - 1.0.12
+  - preparing for release of v1.0.12
+  - preparing for release of v1.0.12
+  - 1.0.11
+  - preparing for release of v1.0.11
+  - Merge pull request #46 from ansble/feature/gulp-to-npm
+  - missed a call to monument
+  - expanded tests
+  - added mocha
+  - added test.sh and fixed an error with the base project
+  - added an answeer file to expand tests
+  - bumped node version in the package.json
+  - Adds mocha and locks down deps in template better
+  - Tweaks the dockerfile
+  - Adds a docker file to make life even easier
+  - Updates deps, versions, drops gulp etc.
+  - Merge pull request #45 from matsieftw/add-scanjs-defaults
+  - Fixed a minor spelling error in the README.md for the CLI.
+  - Hopefully finally fixed all the spacing issues in the project eslintrc. Removed superfluous "use strict" directives from files.
+  - Fix spacing on eslintrc. Add new rules packages to devDependencies in base package.json.
+  - Add scanJS rules to eslint template file. Add scanjs package to eslint template file.
+  - 1.0.10
+  - Merge pull request #40 from ansble/feature/docs
+  - Adds documentation to replace the yo docs
+  - 1.0.9
+  - updated for 2.2.0 release of monument
+  - 1.0.8
+  - Adds the data file as desired to the app.js file
+  - 1.0.7
+  - Merge pull request #39 from ansble/bug/target-directory-not-working
+  - Fixes a bug that made creating a new directory not work
+  - 1.0.6
+  - Merge pull request #37 from ansble/bug/mal-formed-readme
+  - changes the white space setting for dot templates 
+
+
+ ### - 1.2.1 * 3/7/2017, 6:04:16 AM *
 
    - preparing for release of v1.2.1
   - Merge pull request #51 from ansble/greenkeeper/initial
