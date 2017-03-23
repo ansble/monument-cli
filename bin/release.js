@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 'use strict';
-const cp = require('child_process')
+const minimist = require('minimist')
+    , cp = require('child_process')
     , fs = require('fs')
     , chalk = require('chalk')
-    , opt = process.argv.pop()
-    , options = { type: opt }
+    , knownOptions = {
+        string: 'type'
+        , default: { type: 'patch' }
+    }
+    , options = minimist(process.argv.slice(2), knownOptions)
     , incrementVersion = require('./increment.js')
     , pkg = require('../package.json')
     , newVersion = incrementVersion(pkg.version, options.type)
     , gitLogCommand = 'git log `git describe --tags --abbrev=0`..HEAD --pretty=format:"  - %s"';
-
-console.log(opt, options);
 
 // this is the task to automat most of the release stuff... because it is lame and boring
 console.log(`\n\nPreparing for a ${chalk.bgGreen.bold(options.type)} release...\n\n`);
@@ -39,7 +41,7 @@ cp.exec(gitLogCommand, (err, stdout) => {
                     cp.exec('npm publish', () => {
                         console.log('pushing to origin');
 
-                        cp.exec('git push origin master', Function.prototype);
+                        cp.exec('git push origin HEAD', Function.prototype);
                         cp.exec(`git push origin v${newVersion}`, (errPush) => {
                             if (errPush) {
                                 console.log(errPush);
