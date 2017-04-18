@@ -53,7 +53,7 @@ module.exports = () => {
 
           routeReadHolder = fs.readFileSync(targetPath, 'utf-8');
 
-                    // check for all the verbs...
+          // check for all the verbs...
           routes[route].forEach((verb) => {
             const regex = new RegExp(`route:${localRoute}:${verb.toLowerCase()}`),
                   chalkedVerb = chalk.green(verb),
