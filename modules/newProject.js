@@ -64,6 +64,15 @@ module.exports = (pathIn) => {
             default: 'Make the world a better place for everyone',
             required: true,
             type: 'string'
+          },
+          nodeCached: {
+            description: 'node-cached (yes/no)',
+            default: 'no',
+            required: true,
+            type: 'string',
+            before: (value) => {
+              return value.toLowerCase() === 'yes';
+            }
           }
         }
       }, (promptErr, resultsIn) => {

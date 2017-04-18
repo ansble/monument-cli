@@ -2,6 +2,9 @@
   "name": "{{=it.packageName}}",
   "version": "{{=it.version}}",
   "description": "{{=it.description}}",
+  "monument": {
+    "nodeCached": "{{=it.nodeCached}}"
+  },
   "main": "app.js",
   "dependencies": {
     "monument": "~2.6.0",
