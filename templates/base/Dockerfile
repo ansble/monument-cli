@@ -2,7 +2,7 @@ FROM node:6
 
 # Install app dependencies
 COPY package.json /src/package.json
-RUN cd /src; npm install --production
+RUN cd /src; npm install
 
 # Bundle app source
 COPY . /src
