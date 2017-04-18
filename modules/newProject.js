@@ -69,7 +69,10 @@ module.exports = (pathIn) => {
             description: 'node-cached (yes/no)',
             default: 'no',
             required: true,
-            type: 'string'
+            type: 'string',
+            before: (value) => {
+              return value.toLowerCase() === 'yes';
+            }
           }
         }
       }, (promptErr, resultsIn) => {
