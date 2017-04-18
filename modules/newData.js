@@ -5,6 +5,7 @@ const prompt = require('prompt'),
       monumentCheck = require('./checkForProject'),
       path = require('path'),
       fs = require('fs'),
+      cp = require('child_process'),
       esprima = require('esprima'),
       escodegen = require('escodegen'),
       beautify = require('js-beautify').js_beautify,
@@ -38,7 +39,7 @@ module.exports = (dataName) => {
           requireCode = esprima.parse(`require('./data/${dataName}.js')`),
           esprimaOpts = { comment: true, range: true },
           /* eslint-disable camelcase */
-          beautifyOpts = { preserve_newlines: true },
+          beautifyOpts = { indent_size: 2, preserve_newlines: true },
           /* eslint-enable camelcase */
           appFile = path.join(process.cwd(), 'app.js');
 
@@ -83,6 +84,8 @@ module.exports = (dataName) => {
       app.body.splice(monumentLocation, 0, requireCode.body[0]);
 
       fs.writeFileSync(appFile, beautify(escodegen.generate(app, { comments: true }), beautifyOpts).replace(/monument\./, '\nmonument.').replace(/^require/m, '\nrequire'));
+
+      cp.exec(`node_modules/.bin/eslint --fix ${appFile}`);
     } else {
       console.log('\n\nWait a minute...');
       console.log(`   are you sure this is a ${chalk.cyan('monument')} project folder?`);
