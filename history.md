@@ -1,4 +1,13 @@
-### - 1.2.3 * 4/4/2017, 1:27:58 PM *
+### - 1.3.0 * 4/18/2017, 8:21:09 AM *
+
+   - Merge pull request #54 from ansble/upgrade/2.6
+  - tweaks jsbeautify and uses eslint to make everything good spacing wise
+  - fixes spacing?
+  - corrects some spacing issues
+  - updates to latest version of monument and changes code style 
+
+
+ ### - 1.2.3 * 4/4/2017, 1:27:58 PM *
 
    - Merge pull request #53 from ansble/greenkeeper/eslint-3.19.0
   - chore(package): update eslint to version 3.19.0
