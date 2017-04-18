@@ -65,6 +65,12 @@ module.exports = (pathIn) => {
                         , required: true
                         , type: 'string'
                     }
+                    , node-cached: {
+                        description: 'node-cached (yes/no)'
+                        , default: 'no'
+                        , required: true
+                        , type: 'string'
+                    }
                 }
             }, (promptErr, resultsIn) => {
                 let gitFlag = false
