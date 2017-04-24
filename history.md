@@ -1,4 +1,18 @@
-### - 1.3.0 * 4/18/2017, 8:21:09 AM *
+### - 2.6.1 * 4/24/2017, 10:10:29 AM *
+
+   - Merge pull request #57 from ansble/greenkeeper/mocha-3.3.0
+  - chore(package): update mocha to version 3.3.0
+  - 2.6.0
+  - 1.3.0
+  - preparing for release of v1.3.0
+  - Merge pull request #54 from ansble/upgrade/2.6
+  - tweaks jsbeautify and uses eslint to make everything good spacing wise
+  - fixes spacing?
+  - corrects some spacing issues
+  - updates to latest version of monument and changes code style 
+
+
+ ### - 1.3.0 * 4/18/2017, 8:21:09 AM *
 
    - Merge pull request #54 from ansble/upgrade/2.6
   - tweaks jsbeautify and uses eslint to make everything good spacing wise
