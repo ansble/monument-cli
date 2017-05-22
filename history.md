@@ -1,4 +1,15 @@
-### - 2.6.1 * 4/24/2017, 10:10:29 AM *
+### - 2.6.2 * 5/22/2017, 7:02:53 AM *
+
+   - Updates to latest patch release of monument
+  - Merge pull request #58 from ansble/greenkeeper/mocha-3.4.1
+  - chore(package): update mocha to version 3.4.1
+  - 2.6.1
+  - preparing for release of v2.6.1
+  - Merge pull request #57 from ansble/greenkeeper/mocha-3.3.0
+  - chore(package): update mocha to version 3.3.0 
+
+
+ ### - 2.6.1 * 4/24/2017, 10:10:29 AM *
 
    - Merge pull request #57 from ansble/greenkeeper/mocha-3.3.0
   - chore(package): update mocha to version 3.3.0
