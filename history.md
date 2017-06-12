@@ -1,4 +1,10 @@
-### - 2.6.2 * 5/22/2017, 7:02:53 AM *
+### - 2.6.4 * 6/12/2017, 6:03:53 AM *
+
+   - Merge pull request #60 from ansble/greenkeeper/esprima-4.0.0
+  - fix(package): update esprima to version 4.0.0 
+
+
+ ### - 2.6.2 * 5/22/2017, 7:02:53 AM *
 
    - Updates to latest patch release of monument
   - Merge pull request #58 from ansble/greenkeeper/mocha-3.4.1
