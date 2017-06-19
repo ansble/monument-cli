@@ -4,7 +4,7 @@
   "description": "{{=it.description}}",
   "main": "app.js",
   "dependencies": {
-    "monument": "~2.6.12",
+    "monument": "~3.0.0",
     "node-cached": "~1.0.0",
     "dot": "~1.1.1"
   },
