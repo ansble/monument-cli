@@ -1,6 +1,6 @@
 {
   "name": "monument-cli",
-  "version": "2.6.4",
+  "version": "2.6.5",
   "description": "monumentjs cli",
   "license": "MIT",
   "main": "bin/monument",
