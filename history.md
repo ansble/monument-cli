@@ -1,4 +1,12 @@
-### - 2.6.4 * 6/12/2017, 6:03:53 AM *
+### - 2.6.5 * 6/23/2017, 4:06:34 PM *
+
+   - Merge branch 'master' into monument-3.0.0
+  - Merge pull request #62 from ansble/greenkeeper/commander-2.10.0
+  - fix(package): update commander to version 2.10.0
+  - bump to latest major version of monument 
+
+
+ ### - 2.6.4 * 6/12/2017, 6:03:53 AM *
 
    - Merge pull request #60 from ansble/greenkeeper/esprima-4.0.0
   - fix(package): update esprima to version 4.0.0 
