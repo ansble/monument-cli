@@ -1,4 +1,9 @@
-### - 2.6.5 * 6/23/2017, 4:06:34 PM *
+### - 3.0.0 * 6/23/2017, 4:08:04 PM *
+
+  
+
+
+ ### - 2.6.5 * 6/23/2017, 4:06:34 PM *
 
    - Merge branch 'master' into monument-3.0.0
   - Merge pull request #62 from ansble/greenkeeper/commander-2.10.0
