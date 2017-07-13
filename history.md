@@ -1,4 +1,20 @@
-### - 3.0.0 * 6/23/2017, 4:08:04 PM *
+### - 3.0.1 * 7/13/2017, 7:07:48 AM *
+
+   - Merge pull request #70 from ansble/feature/update-deps-3.0.4-monument-etc
+  - everything seems to be working
+  - Merge pull request #69 from ansble/greenkeeper/eslint-4.2.0
+  - Merge branch 'feature/update-deps-3.0.4-monument-etc' into greenkeeper/eslint-4.2.0
+  - Merge pull request #68 from ansble/greenkeeper/chalk-2.0.1
+  - Merge branch 'feature/update-deps-3.0.4-monument-etc' into greenkeeper/chalk-2.0.1
+  - Merge pull request #66 from ansble/greenkeeper/commander-2.11.0
+  - Merge pull request #67 from ansble/greenkeeper/chai-4.1.0
+  - chore(package): update chai to version 4.1.0
+  - chore(package): update eslint to version 4.2.0
+  - fix(package): update commander to version 2.11.0
+  - fix(package): update chalk to version 2.0.1 
+
+
+ ### - 3.0.0 * 6/23/2017, 4:08:04 PM *
 
   
 
