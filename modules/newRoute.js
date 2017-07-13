@@ -60,7 +60,7 @@ module.exports = () => {
                   chalkedRoute = chalk.green(localRoute);
 
             if (!routeReadHolder.match(regex)){
-                            // the route does not yet exist... stub it out
+              // the route does not yet exist... stub it out
 
               routeReadHolder += `\r\n\r\n${existingRoute({
                 routePath: localRoute,
