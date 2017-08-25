@@ -1,8 +1,10 @@
 'use strict';
 
 let out = '',
+    forward = '',
     headers = {},
-    status = 200;
+    status = 200,
+    done;
 
 const write = (input) => {
         if (typeof input === 'object') {
@@ -10,13 +12,18 @@ const write = (input) => {
         } else {
           out = input;
         }
+
+        if (done) {
+          done();
+        }
       },
 
       show = () => {
         return {
           status: status,
           headers: headers,
-          response: out
+          response: out,
+          forward: forward
         };
       };
 
@@ -31,12 +38,27 @@ module.exports = {
     writeHead: (code, headersIn) => {
       status = code;
       headers = headersIn;
+    },
+    redirect: (url) => {
+      forward = url;
+
+      if (done) {
+        done();
+      }
     }
+  },
+  req: {
+    headers: {}
   },
   reset: () => {
     headers = {};
     status = 200;
     out = '';
+    forward = '';
+    done = null;
   },
-  out: show
+  out: show,
+  done: (cb) => {
+    done = cb;
+  }
 };

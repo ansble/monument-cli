@@ -48,7 +48,7 @@ module.exports = (pathIn) => {
             description: 'What is the name of your project?',
             type: 'string',
             // this should change with each major release
-            default: 'la-Fleche-Wallone',
+            default: 'Coppa-Bernocchi',
             required: true
           },
           version: {
