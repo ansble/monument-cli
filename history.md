@@ -1,4 +1,22 @@
-### - 3.0.2 * 7/27/2017, 8:25:29 AM *
+### - 3.0.3 * 8/25/2017, 2:19:50 PM *
+
+   - Merge pull request #79 from ansble/feauture/new-connection-stub
+  - Updates the connectionStub and other things
+  - Merge pull request #74 from ansble/greenkeeper/mocha-3.5.0
+  - Merge pull request #77 from ansble/greenkeeper/chalk-2.1.0
+  - Merge pull request #78 from ansble/greenkeeper/eslint-4.5.0
+  - chore(package): update eslint to version 4.5.0
+  - fix(package): update chalk to version 2.1.0
+  - chore(package): update mocha to version 3.5.0
+  - 3.0.2
+  - preparing for release of v3.0.2
+  - Merge pull request #73 from ansble/greenkeeper/semver-5.4.1
+  - Merge pull request #71 from ansble/greenkeeper/eslint-4.3.0
+  - fix(package): update semver to version 5.4.1
+  - chore(package): update eslint to version 4.3.0 
+
+
+ ### - 3.0.2 * 7/27/2017, 8:25:29 AM *
 
    - Merge pull request #73 from ansble/greenkeeper/semver-5.4.1
   - Merge pull request #71 from ansble/greenkeeper/eslint-4.3.0
