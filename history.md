@@ -1,4 +1,31 @@
-### - 3.0.3 * 8/25/2017, 2:19:50 PM *
+### - 3.1.1 * 9/18/2017, 8:48:46 PM *
+
+   - last deps update
+  - Merge pull request #84 from ansble/greenkeeper/js-beautify-1.7.3
+  - Merge branch 'greenkeeper/eslint-4.7.1' into master
+  - Merge pull request #81 from ansble/greenkeeper/escodegen-1.9.0
+  - Merge pull request #86 from ansble/master
+  - Merge pull request #85 from ansble/master
+  - fixes tests
+  - Merge pull request #80 from ansble/greenkeeper/eslint-4.6.0
+  - chore(package): update eslint to version 4.7.1
+  - fix(package): update js-beautify to version 1.7.3
+  - fix(package): update escodegen to version 1.9.0
+  - chore(package): update eslint to version 4.6.0
+  - 3.1.0
+  - 3.0.3
+  - preparing for release of v3.0.3
+  - Merge pull request #79 from ansble/feauture/new-connection-stub
+  - Updates the connectionStub and other things
+  - Merge pull request #74 from ansble/greenkeeper/mocha-3.5.0
+  - Merge pull request #77 from ansble/greenkeeper/chalk-2.1.0
+  - Merge pull request #78 from ansble/greenkeeper/eslint-4.5.0
+  - chore(package): update eslint to version 4.5.0
+  - fix(package): update chalk to version 2.1.0
+  - chore(package): update mocha to version 3.5.0 
+
+
+ ### - 3.0.3 * 8/25/2017, 2:19:50 PM *
 
    - Merge pull request #79 from ansble/feauture/new-connection-stub
   - Updates the connectionStub and other things
