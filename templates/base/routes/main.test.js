@@ -15,9 +15,12 @@ describe('main route file tests', () => {
     fakeConnection.reset();
   });
 
-  it('should respond to route:/:get', () => {
-    events.emit('route:/:get', fakeConnection);
+  it('should respond to route:/:get', (done) => {
+    fakeConnection.done(() => {
+      assert.strictEqual(fakeConnection.out().response, response);
+      done();
+    });
 
-    assert.strictEqual(fakeConnection.out().response, response);
+    events.emit('route:/:get', fakeConnection);
   });
 });
