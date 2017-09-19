@@ -4,17 +4,16 @@
   "description": "{{=it.description}}",
   "main": "app.js",
   "dependencies": {
-    "monument": "~3.0.11",
-    "node-cached": "~1.0.0",
-    "dot": "~1.1.1"
+    "monument": "~3.1.6",
+    "node-cached": "~1.0.0"
   },
   "devDependencies": {
-    "chai": "~4.1.0",
-    "eslint": "~4.2.0",
-    "eslint-plugin-scanjs-rules": "~0.1.5",
+    "chai": "~4.1.2",
+    "eslint": "~4.7.1",
+    "eslint-plugin-scanjs-rules": "~0.2.1",
     "eslint-plugin-no-unsafe-innerhtml": "~1.0.16",
     "istanbul": "~0.4.5",
-    "mocha": "~3.4.1"
+    "mocha": "~3.5.3"
   },
   "scripts": {
   	"start": "node app.js",

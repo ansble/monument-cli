@@ -17,63 +17,77 @@ describe('Error Handler Tests', () => {
     fakeConnection.res.statusCode = 200;
   });
 
-  it('should respond to error:401 with an unauthorized message', () => {
+  it('should respond to error:401 with an unauthorized message', (done) => {
     const statusCode = 401;
 
     let result;
 
-    events.emit('error:401', fakeConnection);
-    result = fakeConnection.out();
+    fakeConnection.done(() => {
+      result = fakeConnection.out();
+      assert.isObject(result.headers);
+      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
+      assert.strictEqual(result.response, response401);
+      done();
+    });
 
-    assert.isObject(result.headers);
-    assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-    assert.strictEqual(result.response, response401);
+    events.emit('error:401', fakeConnection);
   });
 
-  it('should respond to error:404 with a missing file message', () => {
+  it('should respond to error:404 with a missing file message', (done) => {
     const statusCode = 404;
 
     let result;
 
-    events.emit('error:404', fakeConnection);
-    result = fakeConnection.out();
+    fakeConnection.done(() => {
+      result = fakeConnection.out();
 
-    assert.isObject(result.headers);
-    assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-    assert.strictEqual(result.response, response404);
+      assert.isObject(result.headers);
+      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
+      assert.strictEqual(result.response, response404);
+      done();
+    });
+
+    events.emit('error:404', fakeConnection);
   });
 
-  it('should respond to error:500 with a server error', () => {
+  it('should respond to error:500 with a server error', (done) => {
     const statusCode = 500;
 
     let result;
+
+    fakeConnection.done(() => {
+      result = fakeConnection.out();
+
+      assert.isObject(result.headers);
+      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
+      assert.strictEqual(result.response, response500Generic);
+      done();
+    });
 
     events.emit('error:500', {
       connection: fakeConnection
     });
 
-    result = fakeConnection.out();
-
-    assert.isObject(result.headers);
-    assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-    assert.strictEqual(result.response, response500Generic);
   });
 
-  it('should respond to error:500 with a server error', () => {
+  it('should respond to error:500 with a server error', (done) => {
     const message = 'This was a bad idea',
           statusCode = 500;
 
     let result;
 
+    fakeConnection.done(() => {
+      result = fakeConnection.out();
+
+      assert.isObject(result.headers);
+      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
+      assert.include(result.response, message);
+      done();
+    });
+
     events.emit('error:500', {
       connection: fakeConnection,
       message: message
     });
-
-    result = fakeConnection.out();
-
-    assert.isObject(result.headers);
-    assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-    assert.include(result.response, message);
   });
 });
