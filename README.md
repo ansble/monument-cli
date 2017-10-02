@@ -11,7 +11,7 @@ You use it by first installing it: `npm install -g monument-cli`
 
 To get a new project simply navigate your terminal to the desired location and run `monument new` answer a few questions and you will have a basic project with an initial route stubbed out for you.
 
-##commands
+## commands
 
 ### `monument new <path-to-project>`
 
