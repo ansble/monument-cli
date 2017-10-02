@@ -16,9 +16,10 @@ const chalk = require('chalk'),
           return 'main';
         } else if (fileName[0] === '') {
           return fileName[1];
+        } else {
+          console.log(chalk.yellow('You have a route that doesn\'t begin with "/"... you should fix that'));
+          return fileName[0];
         }
-        console.log(chalk.yellow('You have a route that doesn\'t begin with "/"... you should fix that'));
-        return fileName[0];
       },
 
       getLocalRoute = (fileName, route) => {
