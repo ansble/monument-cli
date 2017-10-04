@@ -1,4 +1,23 @@
-### - 3.1.1 * 9/18/2017, 8:48:46 PM *
+### - 3.1.2 * 10/4/2017, 6:32:05 AM *
+
+   - Merge pull request #98 from ansble/rev/3.1.10
+  - bumps to latest version
+  - Merge pull request #90 from ansble/greenkeeper/eslint-4.8.0
+  - Merge branch 'master' into greenkeeper/eslint-4.8.0
+  - Merge pull request #97 from ansble/greenkeeper/mocha-4.0.0
+  - Merge pull request #96 from xingwang/issue55-refactor-finalname-in-newroute
+  - chore(package): update mocha to version 4.0.0
+  - Merge branch 'master' into issue55-refactor-finalname-in-newroute
+  - Tweaked based on PR suggestion
+  - Merge pull request #95 from ad-dan/master
+  - Merge pull request #94 from renatoselenica/readme-fix
+  - Refactor finalName in newRoute.js
+  - Locked dependencies and added package-lock file
+  - fixed a typo on README.md, commands markdown
+  - chore(package): update eslint to version 4.8.0 
+
+
+ ### - 3.1.1 * 9/18/2017, 8:48:46 PM *
 
    - last deps update
   - Merge pull request #84 from ansble/greenkeeper/js-beautify-1.7.3
