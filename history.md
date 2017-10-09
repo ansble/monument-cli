@@ -1,4 +1,9 @@
-### - 3.1.2 * 10/9/2017, 6:30:27 AM *
+### - 3.2.0 * 10/9/2017, 6:32:39 AM *
+
+   - Update _package.json 
+
+
+ ### - 3.1.2 * 10/9/2017, 6:30:27 AM *
 
    - Merge pull request #100 from ansble/greenkeeper/js-beautify-1.7.4
   - fix(package): update js-beautify to version 1.7.4
