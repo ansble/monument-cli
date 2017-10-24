@@ -28,7 +28,7 @@
   ],
   "preferGlobal": true,
   "dependencies": {
-    "chalk": "2.1.0",
+    "chalk": "2.3.0",
     "commander": "2.11.0",
     "dot": "1.1.1",
     "escodegen": "1.9.0",
