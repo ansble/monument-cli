@@ -4,14 +4,13 @@ module.exports = (options) => {
   return `/* eslint-env node, mocha */
 'use strict';
 
-const assert = require('chai').assert,
+const test = require('ava'),
       events = require('monument').events,
       fakeConnection = require('../test_stubs/connectionStub');
 
 require('.${options.fileName}');
 
-describe('${options.fileName} route file tests', () => {
-  beforeEach(() => {
-    fakeConnection.reset();
-  });`;
+test.beforeEach(() => {
+  fakeConnection.reset();
+});`;
 };

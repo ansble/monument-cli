@@ -1,7 +1,6 @@
 'use strict';
 
-/* eslint-env node, mocha */
-const assert = require('chai').assert,
+const test = require('ava'),
       events = require('monument').events,
       fakeConnection = require('../test_stubs/connectionStub'),
 
@@ -10,17 +9,15 @@ const assert = require('chai').assert,
 // initialize the code to be tested
 require('./main');
 
-describe('main route file tests', () => {
-  beforeEach(() => {
-    fakeConnection.reset();
+test.beforeEach(() => {
+  fakeConnection.reset();
+});
+
+test.cb('should respond to route:/:get', (t) => {
+  fakeConnection.done(() => {
+    t.is(fakeConnection.out().response, response);
+    t.end();
   });
 
-  it('should respond to route:/:get', (done) => {
-    fakeConnection.done(() => {
-      assert.strictEqual(fakeConnection.out().response, response);
-      done();
-    });
-
-    events.emit('route:/:get', fakeConnection);
-  });
+  events.emit('route:/:get', fakeConnection);
 });

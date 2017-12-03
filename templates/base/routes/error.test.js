@@ -1,6 +1,6 @@
 'use strict';
-/* eslint-env node, mocha */
-const assert = require('chai').assert,
+
+const test = require('ava'),
       events = require('monument').events,
       fakeConnection = require('../test_stubs/connectionStub'),
 
@@ -11,83 +11,74 @@ const assert = require('chai').assert,
 // Initialize the code to be tested
 require('./error');
 
-describe('Error Handler Tests', () => {
-  beforeEach(() => {
-    fakeConnection.reset();
-    fakeConnection.res.statusCode = 200;
+test.beforeEach(() => {
+  fakeConnection.reset();
+  fakeConnection.res.statusCode = 200;
+});
+
+test.cb('should respond to error:401 with an unauthorized message', (t) => {
+  const statusCode = 401;
+
+  fakeConnection.done(() => {
+    const result = fakeConnection.out();
+
+    t.is(typeof result.headers, 'object');
+    t.is(fakeConnection.res.statusCode, statusCode);
+    t.is(result.response, response401);
+    t.is();
   });
 
-  it('should respond to error:401 with an unauthorized message', (done) => {
-    const statusCode = 401;
+  events.emit('error:401', fakeConnection);
+});
 
-    let result;
+test.cb('should respond to error:404 with a missing file message', (t) => {
+  const statusCode = 404;
 
-    fakeConnection.done(() => {
-      result = fakeConnection.out();
-      assert.isObject(result.headers);
-      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-      assert.strictEqual(result.response, response401);
-      done();
-    });
+  fakeConnection.done(() => {
+    const result = fakeConnection.out();
 
-    events.emit('error:401', fakeConnection);
+    t.is(typeof result.headers, 'object');
+    t.is(fakeConnection.res.statusCode, statusCode);
+    t.is(result.response, response404);
+    t.end();
   });
 
-  it('should respond to error:404 with a missing file message', (done) => {
-    const statusCode = 404;
+  events.emit('error:404', fakeConnection);
+});
 
-    let result;
+test.cb('should respond to error:500 with a server error', (t) => {
+  const statusCode = 500;
 
-    fakeConnection.done(() => {
-      result = fakeConnection.out();
+  fakeConnection.done(() => {
+    const result = fakeConnection.out();
 
-      assert.isObject(result.headers);
-      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-      assert.strictEqual(result.response, response404);
-      done();
-    });
-
-    events.emit('error:404', fakeConnection);
+    t.is(typeof result.headers, 'object');
+    t.is(fakeConnection.res.statusCode, statusCode);
+    t.is(result.response, response500Generic);
+    t.end();
   });
 
-  it('should respond to error:500 with a server error', (done) => {
-    const statusCode = 500;
-
-    let result;
-
-    fakeConnection.done(() => {
-      result = fakeConnection.out();
-
-      assert.isObject(result.headers);
-      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-      assert.strictEqual(result.response, response500Generic);
-      done();
-    });
-
-    events.emit('error:500', {
-      connection: fakeConnection
-    });
-
+  events.emit('error:500', {
+    connection: fakeConnection
   });
 
-  it('should respond to error:500 with a server error', (done) => {
-    const message = 'This was a bad idea',
-          statusCode = 500;
+});
 
-    let result;
+test.cb('should respond to error:500 with a server error', (t) => {
+  const message = 'This was a bad idea',
+        statusCode = 500;
 
-    fakeConnection.done(() => {
-      result = fakeConnection.out();
+  fakeConnection.done(() => {
+    const result = fakeConnection.out();
 
-      assert.isObject(result.headers);
-      assert.strictEqual(fakeConnection.res.statusCode, statusCode);
-      assert.include(result.response, message);
-      done();
-    });
+    t.is(typeof result.headers, 'object');
+    t.is(fakeConnection.res.statusCode, statusCode);
+    t.true(result.response.includes(message));
+    t.end();
+  });
 
-    events.emit('error:500', {
-      connection: fakeConnection,
-      message: message
-    });
+  events.emit('error:500', {
+    connection: fakeConnection,
+    message: message
   });
 });

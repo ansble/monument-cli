@@ -19,7 +19,7 @@
   "scripts": {
     "lint": "bin/lint.js",
     "release": "npm test && echo ' => releasing' && bin/release.js",
-    "test": "npm run lint && istanbul cover _mocha -- modules/*.test.js bin/*_test.js"
+    "test": "npm run lint && nyc ava modules/*.test.js bin/*_test.js"
   },
   "keywords": [
     "monument",
@@ -40,10 +40,10 @@
     "semver": "5.4.1"
   },
   "devDependencies": {
+    "ava": "^0.24.0",
     "eslint": "4.8.0",
-    "chai": "4.1.2",
-    "istanbul": "0.4.5",
     "minimist": "1.2.0",
-    "mocha": "4.0.0"
+    "mocha": "4.0.0",
+    "nyc": "^11.3.0"
   }
 }
