@@ -1,4 +1,24 @@
-### - 3.2.0 * 10/9/2017, 6:32:39 AM *
+### - 3.3.0 * 2017-12-4 21:05:41 *
+
+   - Merge pull request #107 from ansble/features/for-3.3.0-release-of-node
+  - Merge branch 'master' into features/for-3.3.0-release-of-node
+  - Switches to ava and preps for release with 3.3.0
+  - Merge pull request #104 from ansble/greenkeeper/chalk-2.3.0
+  - Merge pull request #103 from ansble/greenkeeper/eslint-4.10.0
+  - chore(package): update eslint to version 4.10.0
+  - fix(package): update chalk to version 2.3.0
+  - 3.2.0
+  - preparing for release of v3.2.0
+  - Update _package.json
+  - 3.1.2
+  - preparing for release of v3.1.2
+  - Merge pull request #100 from ansble/greenkeeper/js-beautify-1.7.4
+  - fix(package): update js-beautify to version 1.7.4
+  - Merge pull request #99 from ansble/greenkeeper/mocha-4.0.1
+  - chore(package): update mocha to version 4.0.1 
+
+
+ ### - 3.2.0 * 10/9/2017, 6:32:39 AM *
 
    - Update _package.json 
 
