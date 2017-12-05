@@ -1,6 +1,15 @@
-### - 3.1.2 * 10/4/2017, 6:32:05 AM *
+### - 3.2.0 * 10/9/2017, 6:32:39 AM *
 
-   - Merge pull request #98 from ansble/rev/3.1.10
+   - Update _package.json 
+
+
+ ### - 3.1.2 * 10/9/2017, 6:30:27 AM *
+
+   - Merge pull request #100 from ansble/greenkeeper/js-beautify-1.7.4
+  - fix(package): update js-beautify to version 1.7.4
+  - Merge pull request #99 from ansble/greenkeeper/mocha-4.0.1
+  - chore(package): update mocha to version 4.0.1
+  - Merge pull request #98 from ansble/rev/3.1.10
   - bumps to latest version
   - Merge pull request #90 from ansble/greenkeeper/eslint-4.8.0
   - Merge branch 'master' into greenkeeper/eslint-4.8.0
@@ -14,7 +23,21 @@
   - Refactor finalName in newRoute.js
   - Locked dependencies and added package-lock file
   - fixed a typo on README.md, commands markdown
-  - chore(package): update eslint to version 4.8.0 
+  - chore(package): update eslint to version 4.8.0
+  - 3.1.1
+  - preparing for release of v3.1.1
+  - last deps update
+  - Merge pull request #84 from ansble/greenkeeper/js-beautify-1.7.3
+  - Merge branch 'greenkeeper/eslint-4.7.1' into master
+  - Merge pull request #81 from ansble/greenkeeper/escodegen-1.9.0
+  - Merge pull request #86 from ansble/master
+  - Merge pull request #85 from ansble/master
+  - fixes tests
+  - Merge pull request #80 from ansble/greenkeeper/eslint-4.6.0
+  - chore(package): update eslint to version 4.7.1
+  - fix(package): update js-beautify to version 1.7.3
+  - fix(package): update escodegen to version 1.9.0
+  - chore(package): update eslint to version 4.6.0 
 
 
  ### - 3.1.1 * 9/18/2017, 8:48:46 PM *
