@@ -1,11 +1,8 @@
-/* eslint-env node, mocha */
 'use strict';
 
-const subject = require('./newProject'),
-      assert = require('chai').assert;
+const test = require('ava'),
+      subject = require('./newProject');
 
-describe('New Route module tests', () => {
-  it('should return a function', () => {
-    assert.isFunction(subject);
-  });
+test('should return a function', (t) => {
+  t.is(typeof subject, 'function');
 });
