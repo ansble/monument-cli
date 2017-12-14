@@ -1,4 +1,15 @@
-### - 3.3.0 * 2017-12-4 21:05:41 *
+### - 3.3.1 * 2017-12-14 05:15:23 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #110 from ansble/greenkeeper/commander-2.12.2
+  - Merge pull request #108 from ansble/greenkeeper/js-beautify-1.7.5
+  - Merge pull request #109 from ansble/greenkeeper/eslint-4.13.1
+  - chore(package): update eslint to version 4.13.1
+  - fix(package): update js-beautify to version 1.7.5
+  - fix(package): update commander to version 2.12.2 
+
+
+ ### - 3.3.0 * 2017-12-4 21:05:41 *
 
    - Merge pull request #107 from ansble/features/for-3.3.0-release-of-node
   - Merge branch 'master' into features/for-3.3.0-release-of-node
