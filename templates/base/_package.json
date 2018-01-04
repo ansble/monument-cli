@@ -4,7 +4,8 @@
   "description": "{{=it.description}}",
   "main": "app.js",
   "dependencies": {
-    "node-cached": "~1.0.0"
+    "node-cached": "~1.0.0",
+    "monument": "^3.3.13"
   },
   "devDependencies": {
     "ava": "~0.23.0",
