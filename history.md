@@ -1,4 +1,9 @@
-### - 3.3.1 * 2017-12-14 05:15:23 *
+### - 3.3.2 * 2018-1-4 08:16:07 *
+
+   - fixes stuff... 
+
+
+ ### - 3.3.1 * 2017-12-14 05:15:23 *
 
    - Merge branch 'master' of https://github.com/ansble/monument-cli
   - Merge pull request #110 from ansble/greenkeeper/commander-2.12.2
