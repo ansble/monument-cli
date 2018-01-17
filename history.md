@@ -1,4 +1,15 @@
-### - 3.3.2 * 2018-1-4 08:16:07 *
+### - 3.3.3 * 2018-1-16 21:41:02 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #114 from ansble/greenkeeper/commander-2.13.0
+  - Merge pull request #115 from ansble/greenkeeper/semver-5.5.0
+  - fix(package): update semver to version 5.5.0
+  - fix(package): update commander to version 2.13.0
+  - Merge pull request #113 from ansble/greenkeeper/eslint-4.15.0
+  - chore(package): update eslint to version 4.15.0 
+
+
+ ### - 3.3.2 * 2018-1-4 08:16:07 *
 
    - fixes stuff... 
 
