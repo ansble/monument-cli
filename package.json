@@ -29,7 +29,7 @@
   "preferGlobal": true,
   "dependencies": {
     "chalk": "2.3.0",
-    "commander": "2.12.2",
+    "commander": "2.13.0",
     "dot": "1.1.1",
     "escodegen": "1.9.0",
     "esprima": "4.0.0",
@@ -37,11 +37,11 @@
     "ncp": "2.0.0",
     "ora": "1.1.0",
     "prompt": "1.0.0",
-    "semver": "5.4.1"
+    "semver": "5.5.0"
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "eslint": "4.13.1",
+    "eslint": "4.15.0",
     "minimist": "1.2.0",
     "nyc": "^11.3.0"
   }
