@@ -1,4 +1,11 @@
-### - 3.3.4 * 2018-1-16 21:41:33 *
+### - 3.3.5 * 2018-1-23 06:05:53 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #116 from ansble/greenkeeper/eslint-4.16.0
+  - chore(package): update eslint to version 4.16.0 
+
+
+ ### - 3.3.4 * 2018-1-16 21:41:33 *
 
   
 
