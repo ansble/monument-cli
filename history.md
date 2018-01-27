@@ -1,4 +1,11 @@
-### - 3.3.5 * 2018-1-23 06:05:53 *
+### - 3.3.6 * 2018-1-27 07:19:22 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #117 from ansble/greenkeeper/ava-0.25.0
+  - chore(package): update ava to version 0.25.0 
+
+
+ ### - 3.3.5 * 2018-1-23 06:05:53 *
 
    - Merge branch 'master' of https://github.com/ansble/monument-cli
   - Merge pull request #116 from ansble/greenkeeper/eslint-4.16.0
