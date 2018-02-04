@@ -1,4 +1,13 @@
-### - 4.0.0 * 2018-2-4 10:40:39 *
+### - 4.0.1 * 2018-2-4 13:39:24 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #119 from ansble/greenkeeper/ora-1.4.0
+  - Merge pull request #120 from ansble/greenkeeper/eslint-4.17.0
+  - chore(package): update eslint to version 4.17.0
+  - fix(package): update ora to version 1.4.0 
+
+
+ ### - 4.0.0 * 2018-2-4 10:40:39 *
 
    - upates 
 
