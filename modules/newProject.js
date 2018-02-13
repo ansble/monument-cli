@@ -9,7 +9,8 @@ const prompt = require('prompt'),
       stream = require('stream'),
       dot = require('dot'),
       cp = require('child_process'),
-      ora = require('ora');
+      ora = require('ora'),
+      setupTemplates = require('./setupTemplates');
 
 dot.templateSettings.strip = false;
 
@@ -64,6 +65,19 @@ module.exports = (pathIn) => {
             default: 'Make the world a better place for everyone',
             required: true,
             type: 'string'
+          },
+          templates: {
+            description: 'What template engine will you use? [(d)ot/(h)andlebars]',
+            default: 'dot',
+            required: true,
+            type: 'string',
+            before: (v) => {
+              if (v === 'd') return 'dot';
+              if (v === 'h') return 'handlebars';
+
+              return v;
+            },
+            conform: (v) => ['d', 'h', 'dot', 'handlebars'].includes(v)
           }
         }
       }, (promptErr, resultsIn) => {
@@ -79,6 +93,8 @@ module.exports = (pathIn) => {
                 transform._transform = function (chunk, enc, done) {
                 /* eslint-enable no-underscore-dangle*/
                   const data = chunk.toString();
+
+                  resultsIn.templateVersion = resultsIn.templates === 'dot' ? '1.1.2' : '4.0.11';
 
                   this.push(dot.template(data)(resultsIn));
 
@@ -106,7 +122,6 @@ module.exports = (pathIn) => {
               directories = [
                 'data',
                 'public',
-                'templates',
                 'routes',
                 'test_stubs',
                 'bin'
@@ -171,6 +186,9 @@ module.exports = (pathIn) => {
 
           ncp(sourceDir, targetDir);
         });
+
+        // SETUP THE TEMPLATE DIRECTORY
+        setupTemplates(results.templates, mainTargetDir);
 
         // template the files that need it
         templateFiles.forEach((template) => {
