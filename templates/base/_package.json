@@ -5,7 +5,8 @@
   "main": "app.js",
   "dependencies": {
     "node-cached": "~1.1.0",
-    "monument": "^4.0.0"
+    "monument": "^4.0.0",
+    "{{=it.templates.name}}": "{{=it.templates.version}}"
   },
   "devDependencies": {
     "ava": "~0.25.0",

@@ -9,7 +9,8 @@ const prompt = require('prompt'),
       stream = require('stream'),
       dot = require('dot'),
       cp = require('child_process'),
-      ora = require('ora');
+      ora = require('ora'),
+      setupTemplates = require('./setupTemplates');
 
 dot.templateSettings.strip = false;
 
@@ -64,6 +65,16 @@ module.exports = (pathIn) => {
             default: 'Make the world a better place for everyone',
             required: true,
             type: 'string'
+          },
+          templates: {
+            description: 'What template engine will you use? [(d)ot/(h)andlebars]',
+            default: 'dot',
+            required: true,
+            type: 'string',
+            before: (v) => {
+              return v;
+            },
+            conform: (v) => ['d', 'h', 'dot', 'handlebars'].includes(v)
           }
         }
       }, (promptErr, resultsIn) => {
@@ -74,6 +85,14 @@ module.exports = (pathIn) => {
         const templatePath = pathObj.join(__dirname, '/../templates/base/'),
               templateTransform = () => {
                 const transform = new stream.Transform({ objectMode: true });
+
+                if (resultsIn.templates === 'd' || resultsIn.templates === 'dot') {
+                  resultsIn.templates = { name: 'dot', version: '1.1.2' };
+                }
+
+                if (resultsIn.templates === 'h' || resultsIn.templates === 'handlebars') {
+                  resultsIn.templates = { name: 'handlebars', version: '4.0.11' };
+                }
 
                 /* eslint-disable no-underscore-dangle*/
                 transform._transform = function (chunk, enc, done) {
@@ -106,7 +125,6 @@ module.exports = (pathIn) => {
               directories = [
                 'data',
                 'public',
-                'templates',
                 'routes',
                 'test_stubs',
                 'bin'
@@ -171,6 +189,9 @@ module.exports = (pathIn) => {
 
           ncp(sourceDir, targetDir);
         });
+
+        // SETUP THE TEMPLATE DIRECTORY
+        setupTemplates(results.templates, mainTargetDir);
 
         // template the files that need it
         templateFiles.forEach((template) => {
