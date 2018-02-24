@@ -99,6 +99,8 @@ module.exports = (pathIn) => {
                 /* eslint-enable no-underscore-dangle*/
                   const data = chunk.toString();
 
+                  resultsIn.templateVersion = resultsIn.templates === 'dot' ? '1.1.2' : '4.0.11';
+
                   this.push(dot.template(data)(resultsIn));
 
                   done();
