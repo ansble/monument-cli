@@ -74,7 +74,9 @@ module.exports = (pathIn) => {
             before: (v) => {
               return v;
             },
-            conform: (v) => ['d', 'h', 'dot', 'handlebars'].includes(v)
+            conform: (v) => {
+              return [ 'd', 'h', 'dot', 'handlebars' ].includes(v);
+            }
           }
         }
       }, (promptErr, resultsIn) => {
