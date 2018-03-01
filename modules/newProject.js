@@ -129,7 +129,6 @@ module.exports = (pathIn) => {
               directories = [
                 'data',
                 'public',
-                'routes',
                 'test_stubs',
                 'bin'
               ],

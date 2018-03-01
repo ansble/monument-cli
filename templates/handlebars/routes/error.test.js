@@ -4,12 +4,40 @@ const test = require('ava'),
       events = require('monument').events,
       fakeConnection = require('../test_stubs/connectionStub'),
 
-      response401 = '<!doctype html><html lang="en"> <head> </head> <body> <h1>You tried to access something you aren\'t allowed to. Punk.</h1> <h2></h2> </body></html>',
-      response404 = '<!doctype html><html lang="en"> <head> </head> <body> <h1>file not found</h1> <h2></h2> </body></html>',
-      response500Generic = '<!doctype html><html lang="en"> <head> </head> <body> <h1>server side error happened... sorry.</h1> <h2></h2> </body></html>';
+      response401 = `<!doctype html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <h1>You tried to access something you aren&#x27;t allowed to. Punk.</h1>
+        <h2></h2>
+    </body>
+</html>
+`,
+      response404 = `<!doctype html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <h1>file not found</h1>
+        <h2></h2>
+    </body>
+</html>
+`,
+      response500Generic = `<!doctype html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <h1>server side error happened... sorry.</h1>
+        <h2></h2>
+    </body>
+</html>
+`;
 
 // Initialize the code to be tested
 require('./error');
+require('../templates');
 
 test.beforeEach(() => {
   fakeConnection.reset();
@@ -25,7 +53,7 @@ test.cb('should respond to error:401 with an unauthorized message', (t) => {
     t.is(typeof result.headers, 'object');
     t.is(fakeConnection.res.statusCode, statusCode);
     t.is(result.response, response401);
-    t.is();
+    t.end();
   });
 
   events.emit('error:401', fakeConnection);

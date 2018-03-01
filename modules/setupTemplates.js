@@ -22,11 +22,13 @@ module.exports = (type, mainTargetDir) => {
   switch (types[type]) {
     case 'handlebars':
       ncp(pathObj.join(templatePath, 'handlebars/templates'), pathObj.join(mainTargetDir, 'templates'));
+      ncp(pathObj.join(templatePath, 'handlebars/routes'), pathObj.join(mainTargetDir, 'routes'));
       break;
 
     default:
       // do the dot templates here
       ncp(pathObj.join(templatePath, 'dot/templates'), pathObj.join(mainTargetDir, 'templates'));
+      ncp(pathObj.join(templatePath, 'dot/routes'), pathObj.join(mainTargetDir, 'routes'));
   }
 
   spinner.stopAndPersist(chalk.green('✔'));
