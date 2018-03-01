@@ -1,4 +1,24 @@
-### - 4.0.2 * 2018-2-8 08:09:29 *
+### - 5.0.0 * 2018-2-28 22:10:58 *
+
+   - Merge pull request #127 from ansble/feature/update-for-5.0.0
+  - Merge pull request #125 from ansble/greenkeeper/ora-2.0.0
+  - Merge pull request #123 from ansble/greenkeeper/chalk-2.3.1
+  - Merge pull request #128 from ansble/greenkeeper/eslint-4.18.1
+  - Merge pull request #126 from ansble/greenkeeper/escodegen-1.9.1
+  - expanded tests to cover everything for both types of templates
+  - revised testing and things
+  - working on things
+  - working...on tests and making them actually test things
+  - fix(package): update escodegen to version 1.9.1
+  - Merge branch 'feature/update-for-5.0.0' of https://github.com/ansble/monument-cli into feature/update-for-5.0.0
+  - reorg templates and start work on getting handlebars in frd
+  - fix(package): update ora to version 2.0.0
+  - chore(package): update eslint to version 4.18.1
+  - reorg templates and start work on getting handlebars in frd
+  - fix(package): update chalk to version 2.3.1 
+
+
+ ### - 4.0.2 * 2018-2-8 08:09:29 *
 
    - Merge pull request #122 from ansble/greenkeeper/commander-2.14.1
   - fix(package): update commander to version 2.14.1 
