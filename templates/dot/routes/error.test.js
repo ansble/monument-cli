@@ -25,7 +25,7 @@ test.cb('should respond to error:401 with an unauthorized message', (t) => {
     t.is(typeof result.headers, 'object');
     t.is(fakeConnection.res.statusCode, statusCode);
     t.is(result.response, response401);
-    t.is();
+    t.end();
   });
 
   events.emit('error:401', fakeConnection);

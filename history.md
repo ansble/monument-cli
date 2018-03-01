@@ -1,4 +1,10 @@
-### - 4.0.1 * 2018-2-4 13:39:24 *
+### - 4.0.2 * 2018-2-8 08:09:29 *
+
+   - Merge pull request #122 from ansble/greenkeeper/commander-2.14.1
+  - fix(package): update commander to version 2.14.1 
+
+
+ ### - 4.0.1 * 2018-2-4 13:39:24 *
 
    - Merge branch 'master' of https://github.com/ansble/monument-cli
   - Merge pull request #119 from ansble/greenkeeper/ora-1.4.0
