@@ -17,9 +17,14 @@
   },
   "scripts": {
   	"start": "node app.js",
+    {{? it.templates.name === 'handlebars'}}
+    "test": "npm run lint && nyc ava -s *.test.js bin/*.test.js data/**/*.test.js routes/**/*.test.js",
+    {{?}}
+    {{? it.templates.name === 'dot'}}
     "test": "npm run lint && npm run test-setup && nyc ava -s *.test.js bin/*.test.js data/**/*.test.js routes/**/*.test.js",
-    "lint": "bin/lint.js",
-    "test-setup": "bin/test-setup.js"
+    "test-setup": "bin/test-setup.js",
+    {{?}}
+    "lint": "bin/lint.js"
   },
   "author": "",
   "license": "MIT",
