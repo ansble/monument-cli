@@ -31,5 +31,5 @@ module.exports = (type, mainTargetDir) => {
       ncp(pathObj.join(templatePath, 'dot/routes'), pathObj.join(mainTargetDir, 'routes'));
   }
 
-  spinner.stopAndPersist(chalk.green('✔'));
+  spinner.stopAndPersist({ symbol: chalk.green('✔') });
 };

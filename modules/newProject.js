@@ -207,7 +207,7 @@ module.exports = (pathIn) => {
             .pipe(fs.createWriteStream(targetTemplate));
         });
 
-        templateSpinner.stopAndPersist(chalk.green('✔'));
+        templateSpinner.stopAndPersist({ symbol: chalk.green('✔') });
         processSpinner.start();
         gitSpinner.start();
 
@@ -215,9 +215,9 @@ module.exports = (pathIn) => {
           npmFlag = true;
 
           if (code === 0) {
-            processSpinner.stopAndPersist(chalk.green('✔'));
+            processSpinner.stopAndPersist({ symbol: chalk.green('✔') });
           } else {
-            processSpinner.stopAndPersist(chalk.red('✖'));
+            processSpinner.stopAndPersist({ symbol: chalk.red('✖') });
           }
 
           doneMessage();
@@ -227,9 +227,9 @@ module.exports = (pathIn) => {
           gitFlag = true;
 
           if (code === 0) {
-            gitSpinner.stopAndPersist(chalk.green('✔'));
+            gitSpinner.stopAndPersist({ symbol: chalk.green('✔') });
           } else {
-            gitSpinner.stopAndPersist(chalk.red('✖'));
+            gitSpinner.stopAndPersist({ symbol: chalk.red('✖') });
           }
 
           doneMessage();
