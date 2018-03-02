@@ -1,4 +1,11 @@
-### - 5.0.1 * 2018-2-28 22:14:49 *
+### - 5.0.2 * 2018-3-1 19:55:23 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #129 from wesbaker/ora-change
+  - Correct usage of ora.stopAndPersist to use object param 
+
+
+ ### - 5.0.1 * 2018-2-28 22:14:49 *
 
    - missed the version bump 
 
