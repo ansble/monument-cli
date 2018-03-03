@@ -18,8 +18,8 @@
   },
   "scripts": {
     "lint": "bin/lint.js",
-    "release": "npm test && echo ' => releasing' && bin/release.js",
-    "test": "npm run lint && nyc ava modules/*.test.js bin/*_test.js"
+    "release": "npm test && echo ' => releasing' && tom",
+    "test": "npm run lint && nyc ava modules/*.test.js"
   },
   "keywords": [
     "monument",
@@ -37,7 +37,8 @@
     "ncp": "2.0.0",
     "ora": "2.0.0",
     "prompt": "1.0.0",
-    "semver": "5.5.0"
+    "semver": "5.5.0",
+    "tom-sawyer": "^0.1.2"
   },
   "devDependencies": {
     "ava": "^0.25.0",
