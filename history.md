@@ -1,4 +1,14 @@
-### - 5.0.2 * 2018-3-1 19:55:23 *
+### - 5.0.3 * 2018-3-3 14:30:24 *
+
+   - install update
+  - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #130 from ansble/greenkeeper/chalk-2.3.2
+  - Merge pull request #131 from ansble/greenkeeper/eslint-4.18.2
+  - chore(package): update eslint to version 4.18.2
+  - fix(package): update chalk to version 2.3.2 
+
+
+ ### - 5.0.2 * 2018-3-1 19:55:23 *
 
    - Merge branch 'master' of https://github.com/ansble/monument-cli
   - Merge pull request #129 from wesbaker/ora-change
