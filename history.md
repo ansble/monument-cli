@@ -1,4 +1,9 @@
-### - 5.0.3 * 2018-3-3 14:30:24 *
+### - 5.0.4 * 2018-3-3 15:40:34 *
+
+   - removes release script in favor of tom-sawyer 
+
+
+ ### - 5.0.3 * 2018-3-3 14:30:24 *
 
    - install update
   - Merge branch 'master' of https://github.com/ansble/monument-cli
