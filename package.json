@@ -29,7 +29,7 @@
   "preferGlobal": true,
   "dependencies": {
     "chalk": "2.3.2",
-    "commander": "2.14.1",
+    "commander": "2.15.0",
     "dot": "1.1.1",
     "escodegen": "1.9.1",
     "esprima": "4.0.0",
