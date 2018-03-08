@@ -1,4 +1,10 @@
-### - 5.0.4 * 2018-3-3 15:40:34 *
+### - 5.0.5 * 2018-3-8 08:37:30 *
+
+   - Merge pull request #132 from ansble/greenkeeper/commander-2.15.0
+  - fix(package): update commander to version 2.15.0 
+
+
+ ### - 5.0.4 * 2018-3-3 15:40:34 *
 
    - removes release script in favor of tom-sawyer 
 
