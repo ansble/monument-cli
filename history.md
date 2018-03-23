@@ -1,4 +1,12 @@
-### - 5.0.6 * 2018-3-16 22:05:42 *
+### - 5.0.7 * 2018-3-23 07:10:22 *
+
+   - Merge pull request #134 from ansble/greenkeeper/commander-2.15.1
+  - Merge pull request #135 from ansble/greenkeeper/eslint-4.19.1
+  - chore(package): update eslint to version 4.19.1
+  - fix(package): update commander to version 2.15.1 
+
+
+ ### - 5.0.6 * 2018-3-16 22:05:42 *
 
    - Merge pull request #133 from ansble/greenkeeper/eslint-4.19.0
   - chore(package): update eslint to version 4.19.0 
