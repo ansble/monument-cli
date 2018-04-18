@@ -10,7 +10,8 @@ const prompt = require('prompt'),
       dot = require('dot'),
       cp = require('child_process'),
       ora = require('ora'),
-      setupTemplates = require('./setupTemplates');
+      setupTemplates = require('./setupTemplates'),
+      pkg = require('../package.json');
 
 dot.templateSettings.strip = false;
 
@@ -102,6 +103,7 @@ module.exports = (pathIn) => {
                   const data = chunk.toString();
 
                   resultsIn.templateVersion = resultsIn.templates === 'dot' ? '1.1.2' : '4.0.11';
+                  resultsIn.monumentVersion = pkg.devDependencies.monument;
 
                   this.push(dot.template(data)(resultsIn));
 
