@@ -1,4 +1,11 @@
-### - 5.0.7 * 2018-3-23 07:10:22 *
+### - 5.0.8 * 2018-4-17 22:36:57 *
+
+   - tweaks and improvements
+  - Merge pull request #136 from ansble/greenkeeper/chalk-2.4.0
+  - fix(package): update chalk to version 2.4.0 
+
+
+ ### - 5.0.7 * 2018-3-23 07:10:22 *
 
    - Merge pull request #134 from ansble/greenkeeper/commander-2.15.1
   - Merge pull request #135 from ansble/greenkeeper/eslint-4.19.1

@@ -1,0 +1,7 @@
+{
+  "exclude": {
+    "files": ["readme.md"],
+    "directories": ["bin"]
+  },
+  "threshold": 10
+}

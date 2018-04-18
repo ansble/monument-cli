@@ -1,0 +1,8 @@
+{
+  "exclude": {
+    "users": ["dsellers@instructure.com"],
+    "files": ["readme.md"],
+    "directories": ["bin"]
+  },
+  "threshold": 10
+}
