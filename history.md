@@ -1,4 +1,10 @@
-### - 5.0.8 * 2018-4-17 22:36:57 *
+### - 5.0.9 * 2018-5-1 05:59:41 *
+
+   - Merge pull request #138 from ansble/greenkeeper/ora-2.1.0
+  - fix(package): update ora to version 2.1.0 
+
+
+ ### - 5.0.8 * 2018-4-17 22:36:57 *
 
    - tweaks and improvements
   - Merge pull request #136 from ansble/greenkeeper/chalk-2.4.0
