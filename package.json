@@ -38,7 +38,7 @@
     "ora": "2.1.0",
     "prompt": "1.0.0",
     "semver": "5.5.0",
-    "tom-sawyer": "^0.1.2"
+    "tom-sawyer": "^0.1.5"
   },
   "devDependencies": {
     "ava": "^0.25.0",

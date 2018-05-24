@@ -1,4 +1,10 @@
-### - 5.0.9 * 2018-5-1 05:59:41 *
+### - 5.0.10 * 2018-5-23 22:28:46 *
+
+   - Merge pull request #142 from ansble/greenkeeper/monument-5.1.3
+  - chore(package): update monument to version 5.1.3 
+
+
+ ### - 5.0.9 * 2018-5-1 05:59:41 *
 
    - Merge pull request #138 from ansble/greenkeeper/ora-2.1.0
   - fix(package): update ora to version 2.1.0 
