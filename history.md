@@ -1,4 +1,11 @@
-### - 5.0.10 * 2018-5-23 22:28:46 *
+### - 5.0.11 * 2018-5-23 22:30:47 *
+
+   - Merge branch 'master' of https://github.com/ansble/monument-cli
+  - Merge pull request #139 from ansble/greenkeeper/update-to-node-10
+  - Update engines to node 10 in package.json 
+
+
+ ### - 5.0.10 * 2018-5-23 22:28:46 *
 
    - Merge pull request #142 from ansble/greenkeeper/monument-5.1.3
   - chore(package): update monument to version 5.1.3 
