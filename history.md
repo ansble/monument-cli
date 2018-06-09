@@ -1,4 +1,13 @@
-### - 5.0.11 * 2018-5-23 22:30:47 *
+### - 5.0.12 * 2018-6-9 14:47:41 *
+
+   - Merge pull request #144 from ansble/greenkeeper/monument-5.1.4
+  - Merge branch 'master' into greenkeeper/monument-5.1.4
+  - Merge pull request #143 from ansble/greenkeeper/nyc-12.0.1
+  - chore(package): update monument to version 5.1.4
+  - chore(package): update nyc to version 12.0.1 
+
+
+ ### - 5.0.11 * 2018-5-23 22:30:47 *
 
    - Merge branch 'master' of https://github.com/ansble/monument-cli
   - Merge pull request #139 from ansble/greenkeeper/update-to-node-10
