@@ -31,7 +31,7 @@
     "chalk": "2.4.0",
     "commander": "2.15.1",
     "dot": "1.1.1",
-    "escodegen": "1.9.1",
+    "escodegen": "1.10.0",
     "esprima": "4.0.0",
     "js-beautify": "1.7.5",
     "ncp": "2.0.0",
