@@ -1,4 +1,10 @@
-### - 5.0.12 * 2018-6-9 14:47:41 *
+### - 5.0.13 * 2018-6-11 23:14:38 *
+
+   - Merge pull request #145 from ansble/greenkeeper/escodegen-1.10.0
+  - fix(package): update escodegen to version 1.10.0 
+
+
+ ### - 5.0.12 * 2018-6-9 14:47:41 *
 
    - Merge pull request #144 from ansble/greenkeeper/monument-5.1.4
   - Merge branch 'master' into greenkeeper/monument-5.1.4
