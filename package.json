@@ -35,7 +35,7 @@
     "esprima": "4.0.0",
     "js-beautify": "1.7.5",
     "ncp": "2.0.0",
-    "ora": "2.1.0",
+    "ora": "3.0.0",
     "prompt": "1.0.0",
     "semver": "5.5.0",
     "tom-sawyer": "^0.1.5"
