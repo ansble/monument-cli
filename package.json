@@ -32,7 +32,7 @@
     "commander": "2.17.1",
     "dot": "1.1.1",
     "escodegen": "1.11.0",
-    "esprima": "4.0.0",
+    "esprima": "4.0.1",
     "js-beautify": "1.7.5",
     "ncp": "2.0.0",
     "ora": "3.0.0",
