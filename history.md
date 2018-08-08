@@ -1,4 +1,20 @@
-### - 5.0.13 * 2018-6-11 23:14:38 *
+### - 5.1.0 * 2018-8-8 07:51:21 *
+
+   - updating the lock file
+  - Merge pull request #148 from ansble/greenkeeper/esprima-4.0.1
+  - Merge pull request #152 from ansble/greenkeeper/commander-2.17.1
+  - Merge branch 'master' into greenkeeper/esprima-4.0.1
+  - Merge pull request #149 from ansble/greenkeeper/escodegen-1.11.0
+  - Merge pull request #150 from ansble/greenkeeper/ora-3.0.0
+  - Merge pull request #151 from ansble/greenkeeper/eslint-5.0.1
+  - fix(package): update commander to version 2.17.1
+  - fix(package): update ora to version 3.0.0
+  - fix(package): update escodegen to version 1.11.0
+  - fix(package): update esprima to version 4.0.1
+  - chore(package): update eslint to version 5.0.1 
+
+
+ ### - 5.0.13 * 2018-6-11 23:14:38 *
 
    - Merge pull request #145 from ansble/greenkeeper/escodegen-1.10.0
   - fix(package): update escodegen to version 1.10.0 
