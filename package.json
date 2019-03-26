@@ -35,7 +35,7 @@
     "dot": "1.1.1",
     "escodegen": "1.11.0",
     "esprima": "4.0.1",
-    "js-beautify": "1.7.5",
+    "js-beautify": "1.9.1",
     "ncp": "2.0.0",
     "ora": "3.0.0",
     "prompt": "1.0.0",
