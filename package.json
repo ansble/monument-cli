@@ -39,7 +39,7 @@
     "ncp": "2.0.0",
     "ora": "3.0.0",
     "prompt": "1.0.0",
-    "semver": "5.5.0",
+    "semver": "6.1.2",
     "tom-sawyer": "^0.1.5"
   },
   "devDependencies": {
