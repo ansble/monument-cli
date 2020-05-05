@@ -21,7 +21,9 @@
     "release": "npm test && echo ' => releasing' && tom",
     "release:minor": "npm test && echo ' => releasing' && tom --type=minor",
     "release:major": "npm test && echo ' => releasing' && tom --type=major",
-    "test": "npm run lint && nyc ava modules/*.test.js"
+    "test": "npm run lint && nyc ava modules/*.test.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [
     "monument",
@@ -40,7 +42,8 @@
     "ora": "3.0.0",
     "prompt": "1.0.0",
     "semver": "5.5.0",
-    "tom-sawyer": "^0.1.5"
+    "tom-sawyer": "^0.1.5",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
@@ -48,5 +51,6 @@
     "minimist": "1.2.0",
     "nyc": "^12.0.1",
     "monument": "5.1.4"
-  }
+  },
+  "snyk": true
 }
